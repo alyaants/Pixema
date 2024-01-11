@@ -1,0 +1,49 @@
+@import "../../styles/colors.scss";
+@mixin button {
+  padding: 17px 69px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  font-family: "Exo 2";
+  line-height: 24px;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+  border-radius: 10px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.primary {
+  @include button();
+  background-color: $primary;
+  color: $white;
+  &:hover {
+    background-color: $primary-secondary;
+  }
+}
+.secondary {
+  @include button();
+  background-color: $graphite;
+  color: $white;
+  &:hover {
+    background-color: $light;
+  }
+}
+.error {
+  @include button();
+  color: $error;
+  &:hover {
+    border: 1px solid $error;
+  }
+}
+
+.disabled{
+  background-color: $secondary;
+  color: $light;
+  pointer-events: none;
+}
