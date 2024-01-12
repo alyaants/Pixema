@@ -9,14 +9,8 @@ import Links from "./components/links/links";
 
 function App() {
   return (
-    <div className="App">
-      <Search title={"search"} isDisabled={false} />
-      <TabsList
-        content={[{ title: "title 1", isActive: true }, { title: "title 2", isActive: false}]}
-      />
-      <ButtonGroup isActive={true} />
-      <UserName username={"An P"} />
-      <Links />
+    <div>
+
     </div>
   );
 }
