@@ -1,0 +1,36 @@
+.tabsListContainer{
+display: flex;
+width: 438px;
+height: 56px;
+padding-right: 0px;
+justify-content: center;
+align-items: flex-start;
+border-radius: 5px;
+overflow: hidden;
+.tab{
+overflow: hidden;
+width: 217px;
+height: 52px;
+background-color: #323537;
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: 24px; /* 150% */
+color: #FFFFFF;
+display: flex;
+justify-content: center;
+align-items: center;
+// border-radius: 5px;
+&:hover{
+    cursor: pointer;
+    color: white;
+}
+}
+.disabled{
+    background-color: #242426;
+    color: #80858B;
+}
+}
+
+
+

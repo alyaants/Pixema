@@ -1,24 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import Search from "./components/search/search";
+import TabsList from "./components/tabsList/tabsList";
+import ButtonGroup from "./components/buttonsGroup/buttonsGroup";
+import UserName from "./components/userName/userName";
+import Links from "./components/links/links";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Search title={"search"} isDisabled={false} />
+      <TabsList
+        content={[{ title: "title 1", isActive: true }, { title: "title 2", isActive: false}]}
+      />
+      <ButtonGroup isActive={true} />
+      <UserName username={"An P"} />
+      <Links />
     </div>
   );
 }

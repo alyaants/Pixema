@@ -1,0 +1,33 @@
+.linksContainer {
+    display: flex;
+    width: 100px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.link {
+    width: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+
+    .linkIcon {
+        width: 25px;
+        height: 25px; 
+        margin-right: 20px;
+    }
+
+    .linkText {
+        width: 70px;
+        text-align: left;
+        color: #80858B;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 24px;
+
+    }
+
+}
