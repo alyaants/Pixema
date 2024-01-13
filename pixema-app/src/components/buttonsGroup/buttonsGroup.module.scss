@@ -1,0 +1,34 @@
+.buttonsGroupContainer {
+    display: flex;
+    width: 266px;
+    height: 56px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-sizing: border-box;
+
+    .icon {
+        background-color: #323537;
+        width: 133px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:first-child {
+            border-right: 1px solid black;
+        }
+
+        &:hover{
+            svg{
+                fill: white;
+                stroke: white;
+            }
+            cursor: pointer;
+            
+        }
+    }
+// .disabled{
+//         background-color: #AFB2B6;
+//     }
+    
+} 
+
