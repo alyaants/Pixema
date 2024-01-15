@@ -1,4 +1,4 @@
-@import "src/styles/color";
+@import "src/styles/colors";
 
 .container {
   flex: 1;
@@ -17,7 +17,7 @@
   font-weight: 400;
   line-height: 20px;
   color: $secondary;
-  font-family: "Exo 2";
+  margin-bottom: 24px;
   &:hover,
   &:focus {
     border-color: $primary;
@@ -36,11 +36,11 @@
   background-color: $secondary;
 }
 .title {
+  color: $white;
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
-  line-height: 20px;
-  color: $secondary;
+  line-height: 24px;
   margin-bottom: 8px;
 }
 .errorText {

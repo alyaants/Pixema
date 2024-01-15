@@ -1,11 +1,26 @@
-.formContainer{
-    width: 574px;
-    height: 600px;
-    padding: 40px;
-    display: flex;
-flex-direction: column;
-align-items: flex-start;
-gap: 10px;
-border-radius: 10px;
-background: #242426;
+@import "../../styles/colors.scss";
+
+.container {
+  width: 494px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background-color: $dark;
+  padding: 40px;
+  gap: 10px;
+  border-radius: 10px;
+
+}
+.formContainer {
+  flex: 1;
+  box-sizing: border-box;
+}
+.fieldsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin: 40px auto 0 auto;
+}
+.button {
+  margin-top: 16px;
 }

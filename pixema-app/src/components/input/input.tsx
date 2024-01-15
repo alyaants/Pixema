@@ -16,8 +16,6 @@ interface InputProps {
 }
 
 const Input = React.forwardRef((props: InputProps, ref) => {
-
-
   const onInputChange = (
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -35,19 +33,19 @@ const Input = React.forwardRef((props: InputProps, ref) => {
   };
 
   return (
-    <div>
+    <div className={styles.container}>
       <div className={styles.title}>{props.title}</div>
       {props.textarea ? (
-          <textarea
-            ref={ref as LegacyRef<HTMLTextAreaElement> | null}
-            {...inputProps}
-          />
-        ) : (
-          <input
-            ref={ref as LegacyRef<HTMLInputElement> | null}
-            {...inputProps}
-          />
-        )}
+        <textarea
+          ref={ref as LegacyRef<HTMLTextAreaElement> | null}
+          {...inputProps}
+        />
+      ) : (
+        <input
+          ref={ref as LegacyRef<HTMLInputElement> | null}
+          {...inputProps}
+        />
+      )}
       {props.errorText && (
         <div className={styles.errorText}>{props.errorText}</div>
       )}
