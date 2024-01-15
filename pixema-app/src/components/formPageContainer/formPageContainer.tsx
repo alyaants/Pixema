@@ -1,8 +1,10 @@
 import { ReactElement } from "react";
 import style from "./formPageContainer.module.scss";
 import Button, { ButtonTypes } from "../button/button";
-import { Children } from "../../@types";
+import { Children, Theme } from "../../@types";
 import Title from "../title/title";
+import { useThemeContext } from "../context/theme/context";
+import classNames from "classnames";
 
 type FormContainerProps = {
   title: string;
@@ -13,8 +15,10 @@ type FormContainerProps = {
 };
 
 const FormContainer = (props: FormContainerProps) => {
+  const { themeValue } = useThemeContext();
+
   return (
-    <div className={style.container}>
+    <div className={classNames(style.container, {[style.lightContainer]: themeValue === Theme.Light})}>
       <Title title={props.title} />
       <div className={style.formContainer}>
         <div className={style.fieldsContainer}>{props.children}</div>
