@@ -1,4 +1,16 @@
 @import "src/styles/colors";
+.container{
+    height: 100vh;
+    background-color: black;
+    background-image: url("../../components/assets/img/background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
 
 .additionalText {
   color: $secondary;

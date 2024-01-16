@@ -11,6 +11,7 @@ type FormContainerProps = {
   btnTitle: string;
   onSubmit: () => void;
   additionalText?: ReactElement;
+  className?: string;
 };
 
 const FormContainer = (props: FormContainerProps) => {

@@ -1,19 +1,30 @@
-import FormContainer from '../../components/formPageContainer/formPageContainer'
-import Input from '../../components/input/input'
-import style from './resetPassword.module.scss'
+import FormContainer from "../../components/formPageContainer/formPageContainer";
+import Input from "../../components/input/input";
+import style from "./resetPassword.module.scss";
 
 type ResetPasswordProps = {
-    infoText?: string;
-}
+  infoText?: string;
+};
 
-const ResetPassword = (props:ResetPasswordProps) => {
-    return(
-        <div>
-            <FormContainer title={'Reset Password'} btnTitle={"Reset"} onSubmit={() => {}}>
-                <Input title={"Email"} placeholder={'Your email'} onСhange={() => {}} />
-            </FormContainer>
-        </div>
-    )
-}
+const ResetPassword = (props: ResetPasswordProps) => {
+  return (
+    <div className={style.container}>
+      <div className={style.formContainer}>
+        <FormContainer
+          title={"Reset Password"}
+          btnTitle={"Reset"}
+          onSubmit={() => {}}
+          className={style.formContainer}
+        >
+          <Input
+            title={"Email"}
+            placeholder={"Your email"}
+            onСhange={() => {}}
+          />
+        </FormContainer>
+      </div>
+    </div>
+  );
+};
 
-export default ResetPassword
+export default ResetPassword;

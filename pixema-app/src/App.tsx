@@ -8,7 +8,7 @@ import SignUp from './pages/signUp/signUp';
 function App() {
   return (
     <div >
-  <ResetPassword/>
+  <SignUp/>
     </div>
   );
 }
