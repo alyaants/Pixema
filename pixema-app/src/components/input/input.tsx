@@ -2,6 +2,8 @@ import { ChangeEvent, LegacyRef } from "react";
 import styles from "./input.module.scss";
 import React from "react";
 import classNames from "classnames";
+import { useThemeContext } from "../context/theme/context";
+import { Theme } from "../../@types";
 
 interface InputProps {
   title?: string;
@@ -21,6 +23,7 @@ const Input = React.forwardRef((props: InputProps, ref) => {
   ) => {
     props.onСhange(event.target.value);
   };
+  const { themeValue } = useThemeContext();
 
   const inputProps = {
     onChange: onInputChange,
@@ -33,7 +36,11 @@ const Input = React.forwardRef((props: InputProps, ref) => {
   };
 
   return (
-    <div className={styles.container}>
+    <div
+      className={classNames(styles.container, {
+        [styles.lightContainer]: themeValue === Theme.Light,
+      })}
+    >
       <div className={styles.title}>{props.title}</div>
       {props.textarea ? (
         <textarea

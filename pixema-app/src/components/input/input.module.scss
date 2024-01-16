@@ -55,12 +55,13 @@
   border-color: $error;
 }
 
-.whiteContainer{
+.lightContainer{
   .title{
     color: $black;
   }
   .input{
     background-color: $white;
     color: $black;
+    border: 2px solid var(--Contextual-Colors-Light, #AFB2B6);
   }
 }
