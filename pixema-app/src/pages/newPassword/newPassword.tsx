@@ -1,9 +1,11 @@
 import FormContainer from "../../components/formPageContainer/formPageContainer";
 import Input from "../../components/input/input";
-import style from "./signIn.module.scss";
+import style from './newPassword.module.scss';
 
 const NewPassword = () => {
   return (
+    <div className={style.container}>
+      <div className={style.formContainer}>
     <FormContainer
       title={"New password"}
       btnTitle={"Set password"}
@@ -22,6 +24,8 @@ const NewPassword = () => {
         />
       </div>
     </FormContainer>
+    </div>
+    </div>
   );
 };
 

@@ -4,6 +4,8 @@ import style from "../signIn/signIn.module.scss";
 
 const SignUp = () => {
   return (
+    <div className={style.container}>
+      <div className={style.formContainer}>
     <FormContainer
       title={"Sign Up"}
       btnTitle={"Sign Up"}
@@ -24,6 +26,8 @@ const SignUp = () => {
 
       </div>
     </FormContainer>
+    </div>
+    </div>
   );
 };
 
