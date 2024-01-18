@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom";
 import { Logo } from "../assets/icons/logo/logo";
 import Links from "../links/links";
 import Search from "../search/search";
@@ -21,7 +22,7 @@ const Header = () => {
         <Links />
       </div>
       <div className={style.mainContent}> 
-       <div>Cards</div>
+      <Outlet />
       </div>
       </div>
       

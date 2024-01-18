@@ -4,6 +4,8 @@ import SignUp from "./signUp/signUp"
 import ResetPassword from "./resetPassword/resetPassword"
 import NewPassword from "./newPassword/newPassword"
 import Header from "../components/header/header"
+import AllMovies from "./allMovies/allMovies"
+import SelectedMovie from "./allMovies/selectedMovie/selectedMovie"
 
 export enum RoutesList {
     AllMovies = "/",
@@ -11,7 +13,7 @@ export enum RoutesList {
     SignIn = "/sign-in",
     ResetPassword = "/reset-password",
     NewPassword = "/new-password",
-    SelectedMovie = "/hdd",
+    SelectedMovie = "/selected-movie",
     Default = "*",
   }
 
@@ -19,7 +21,10 @@ const Router = () =>{
     return(
 <BrowserRouter>
 <Routes>
- <Route path={RoutesList.AllMovies} element={<Header />} />;
+ <Route path={RoutesList.AllMovies} element={<Header />}>
+    <Route path={RoutesList.AllMovies} element={<AllMovies />} />;
+    <Route path={RoutesList.SelectedMovie} element={<SelectedMovie />} />;
+    </Route>;
  <Route path={RoutesList.SignUp} element={<SignUp />} />;
  <Route path={RoutesList.SignIn} element={<SignIn />} />;
  <Route path={RoutesList.ResetPassword} element={<ResetPassword />} />;
