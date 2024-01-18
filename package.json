@@ -4,6 +4,7 @@
     "@fortawesome/free-regular-svg-icons": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "classnames": "^2.5.1",
+    "react-router-dom": "^6.21.2",
     "sass": "^1.69.7"
   },
   "devDependencies": {

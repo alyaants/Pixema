@@ -1,0 +1,110 @@
+@import "/src/styles/colors.scss";
+
+.container {
+  max-width: 240px;
+  position: relative;
+}
+
+.image {
+  width: 245px;
+  height: 340px;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $white;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  background-color: $green;
+  min-width: 24px;
+  height: 21px;
+  padding: 2px 8px;
+  border-radius: 6px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.yellow {
+  background-color: $yellow;
+}
+
+.orange {
+  background-color: $orange;
+}
+
+.title {
+  color: $white;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  margin-bottom: 4px;
+  &:hover {
+    color: $primary;
+    cursor: pointer;
+  }
+}
+
+.genres {
+  display: flex;
+  flex-wrap: wrap;
+  color: $light;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  .genre {
+    position: relative;
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+  .genre:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -10px;
+    display: block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: $light;
+  }
+}
+
+.isNotFavorite {
+  display: none;
+}
+
+.favorite {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: $graphite;
+  border-radius: 6px;
+  width: 24px;
+  height: 21px;
+  padding: 2px 8px;
+  gap: 4px;
+}
+
+.trend {
+  background-color: $primary;
+}
+
+.lightTitle {
+  color: $black;
+}
