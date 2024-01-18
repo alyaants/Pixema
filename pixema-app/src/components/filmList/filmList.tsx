@@ -1,27 +1,26 @@
-import React, { FC } from "react";
-import styles from "./PostList.module.scss";
+import styles from "./filmList.module.scss";
 import { PostsList } from "../../../src/@types/index";
 import FilmCard from "../filmCard/filmCard";
 
 interface FilmListProps {
-  postList: PostsList;
+  filmList: PostsList;
   isTrend?: boolean;
   isListLoading?: boolean;
 }
 
 const FilmList = (props: FilmListProps) => {
-  return (
-    <div className={styles.postListContainer}>
-      <FilmCard
-        image={"_"}
-        genres={"__"}
-        ratingsSummary={0}
-        id={0}
-        title={""}
-      />
-      ;
+  return props.filmList.length && !props.isListLoading ? (
+    <div className={styles.filmListContainer}>
+      {props.filmList.map((el) => {
+        return (
+          <FilmCard
+          key={el.id}
+          {...el}
+          />
+        );
+      })}
     </div>
-  );
+  ) : null;
 };
 
 export default FilmList;

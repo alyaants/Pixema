@@ -1,35 +1,36 @@
 @import "../../styles/colors.scss";
 
-.headerContainerMain{
-    background-color: $black;
-    height: 100vh;
-    padding: 20px;
+.headerContainerMain {
+  background-color: $black;
+  //   height: 100vh;
+  padding: 40px 62px 0;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  .headerContainer {
+    max-width: 1760px;
     display: flex;
     justify-content: space-between;
-    flex-direction: column;
-    .headerContainer{
-    display: flex;
-    justify-content: space-between;
-    .search{
-    width: 900px;
-}
-}
+    align-content: center;
+
+    .search {
+      width: 1184px;
+      display: flex;
+      background-color: $graphite;
+      border-radius: 10px;
+    }
+  }
 }
 
-.content{
-flex: 1;
-margin-top: 40px;
-// height: calc(100vh-);
-display: flex;
-// background-color: ghostwhite;
-.links{
+.content {
+  flex: 1;
+  margin: 56px 0 64px;
+  // height: calc(100vh-);
+  display: flex;
 
-}
-.mainContent{
-    margin-left: 30px;
+  .mainContent {
+    width: 2000px;
+    margin: auto;
     flex: 1;
-    background-color: rgb(132, 79, 79);
+  }
 }
-}
-
-

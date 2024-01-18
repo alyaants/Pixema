@@ -42,17 +42,7 @@ const Input = React.forwardRef((props: InputProps, ref) => {
       })}
     >
       <div className={styles.title}>{props.title}</div>
-      {props.textarea ? (
-        <textarea
-          ref={ref as LegacyRef<HTMLTextAreaElement> | null}
-          {...inputProps}
-        />
-      ) : (
-        <input
-          ref={ref as LegacyRef<HTMLInputElement> | null}
-          {...inputProps}
-        />
-      )}
+      <input ref={ref as LegacyRef<HTMLInputElement> | null} {...inputProps} />
       {props.errorText && (
         <div className={styles.errorText}>{props.errorText}</div>
       )}

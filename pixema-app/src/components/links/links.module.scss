@@ -1,33 +1,47 @@
+@import "../../styles/colors.scss";
+
 .linksContainer {
-    display: flex;
-    width: 100px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
+  display: flex;
+  width: 250px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  gap: 40px;
 }
 
 .link {
-    width: 100px;
+  width: 123px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  cursor: pointer;
+  height: 24px;
+  &:hover {
+    color: $primary;
+  }
+  &:hover svg path {
+    fill: $primary;
+  }
+  //   margin-bottom: 40px;
+
+  .linkIcon {
+    width: 25px;
+    height: 25px;
     display: flex;
-    justify-content: space-between;
-    align-items: start;
+    align-items: center;
+  }
 
-    .linkIcon {
-        width: 25px;
-        height: 25px; 
-        margin-right: 20px;
+  .linkText {
+    width: 70px;
+    text-align: left;
+    color: #80858b;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    &:hover {
+      color: $primary;
     }
-
-    .linkText {
-        width: 70px;
-        text-align: left;
-        color: #80858B;
-        font-size: 18px;
-        font-style: normal;
-        font-weight: 600;
-        line-height: 24px;
-
-    }
-
+  }
 }

@@ -1,10 +1,8 @@
-import classNames from "classnames";
 import style from "./links.module.scss";
-import { ReactElement } from "react";
 import { HomeIcon } from "../assets/icons/home/home";
 import { TrendsIcon } from "../assets/icons/trends/trends";
 import { FavoritesIcon } from "../assets/icons/favorite/favorite";
-import { SettingIcon } from "../assets/icons/settings/settings";
+import { SettingsIcon } from "../assets/icons/settings/settings";
 
 type LinksProps = {
   onClick?: () => void;
@@ -37,7 +35,7 @@ const Links = (props: LinksProps) => {
 
       <div className={style.link}>
         <div className={style.linkIcon}>
-          <SettingIcon />
+          <SettingsIcon />
         </div>
         <div className={style.linkText}>Settings</div>
       </div>

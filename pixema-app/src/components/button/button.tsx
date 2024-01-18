@@ -18,7 +18,9 @@ const Button = (props: ButtonProps) => {
   return (
     <div
       onClick={props.onClick}
-      className={classNames(buttonStyle, props.className,{ [styles.disabled]: props.disabled })}
+      className={classNames(buttonStyle, props.className, {
+        [styles.disabled]: props.disabled,
+      })}
     >
       {props.title}
     </div>
