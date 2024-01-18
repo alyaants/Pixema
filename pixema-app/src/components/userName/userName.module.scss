@@ -4,7 +4,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid black;
+    // border: 1px solid black;
     border-radius: 10px;
 
     .initials {
@@ -23,4 +23,8 @@
         /* 120% */
         letter-spacing: 1px;
     }
+}
+
+.fullName{
+    color: white;
 }

@@ -1,5 +1,8 @@
+@import "../../styles/colors.scss";
+
 .searchContainer {
-    width: 1184px;
+    // width: 1184px;
+    flex: 1;
     height: 56px;
     background-color: #323537;
     border-radius: 10px;
