@@ -1,0 +1,49 @@
+@import "src/styles/colors";
+
+.settingsContainer {
+  width: 1186px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.profilInp {
+  background-color: $dark;
+  padding: 40px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  .input {
+    width: 533px;
+  }
+}
+.passwordInps {
+  background-color: $dark;
+  padding: 40px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+
+}
+.passwordInp {
+  width: 533px;
+  display: flex;
+  flex-direction: column;
+}
+.colorModeInf {
+  background-color: $dark;
+  padding: 40px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.colorText{
+    display: flex;
+    flex-direction: column;
+    color: $white;
+    p{
+        color: $light;
+        margin: 4px 0 0;
+    }
+}

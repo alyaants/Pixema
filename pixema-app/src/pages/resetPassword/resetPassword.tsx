@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import FormContainer from "../../components/formPageContainer/formPageContainer";
 import Input from "../../components/input/input";
 import style from "./resetPassword.module.scss";
@@ -7,6 +8,13 @@ type ResetPasswordProps = {
 };
 
 const ResetPassword = (props: ResetPasswordProps) => {
+  const [email, setEmail] = useState("");
+  const inputRef = useRef<HTMLInputElement | null>(null);
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, []);
   return (
     <div className={style.container}>
       <div className={style.formContainer}>
@@ -19,7 +27,9 @@ const ResetPassword = (props: ResetPasswordProps) => {
           <Input
             title={"Email"}
             placeholder={"Your email"}
-            onСhange={() => {}}
+            value={email}
+            onСhange={setEmail}
+            ref={inputRef}
           />
         </FormContainer>
       </div>

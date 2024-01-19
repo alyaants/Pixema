@@ -28,9 +28,18 @@
   // height: calc(100vh-);
   display: flex;
 
+  .links {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    footer {
+      color: $white;
+    }
+  }
+
   .mainContent {
     width: 2000px;
-    margin: auto;
+    margin: 0 auto 64px;
     flex: 1;
   }
 }
