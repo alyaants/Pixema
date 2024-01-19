@@ -1,4 +1,9 @@
 import FilmList from "../../components/filmList/filmList";
+
+import { useDispatch, useSelector} from "react-redux";
+import { MovieSelectors, getAllMovies } from "../../redux/reducers/movieSlice";
+import {  useEffect } from "react";
+
 const MOCK_ARRAY = [
   {
     id: 666,
@@ -78,7 +83,21 @@ const MOCK_ARRAY = [
     ratingsSummary: 7.7,
   },
 ];
+
+
+
+
 const AllMovies = () => {
+  
+const movieList = useSelector(MovieSelectors.getAllMovies);
+const dispatch = useDispatch()
+
+useEffect(() => {
+  dispatch(getAllMovies());
+}, []);
+
+console.log(movieList);
+
   return (
     <div>
       <FilmList filmList={MOCK_ARRAY} />

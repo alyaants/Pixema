@@ -1,6 +1,7 @@
 import styles from "./filmList.module.scss";
 import { PostsList } from "../../../src/@types/index";
 import FilmCard from "../filmCard/filmCard";
+import { useDispatch } from "react-redux";
 
 interface FilmListProps {
   filmList: PostsList;
@@ -9,6 +10,8 @@ interface FilmListProps {
 }
 
 const FilmList = (props: FilmListProps) => {
+
+  
   return props.filmList.length && !props.isListLoading ? (
     <div className={styles.filmListContainer}>
       {props.filmList.map((el) => {
