@@ -6,7 +6,7 @@
   flex-direction: column;
   flex: 1;
 }
-.profilInp {
+.profilInps {
   background-color: $dark;
   padding: 40px;
   border-radius: 10px;
@@ -15,6 +15,7 @@
   margin-bottom: 40px;
   .input {
     width: 533px;
+    margin-right: 40px;
   }
 }
 .passwordInps {
@@ -24,12 +25,12 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 40px;
-
 }
 .passwordInp {
   width: 533px;
   display: flex;
   flex-direction: column;
+  margin-left: 40px;
 }
 .colorModeInf {
   background-color: $dark;
@@ -38,12 +39,27 @@
   display: flex;
   justify-content: space-between;
 }
-.colorText{
-    display: flex;
-    flex-direction: column;
-    color: $white;
-    p{
-        color: $light;
-        margin: 4px 0 0;
-    }
+.colorText {
+  display: flex;
+  flex-direction: column;
+  color: $white;
+  p {
+    color: $light;
+    margin: 4px 0 0;
+  }
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: end;
+  margin-top: 48px;
+
+  .cancelBtn {
+    padding: 16px 108px;
+  }
+  .saveBtn {
+    padding: 16px 108px;
+    margin-left: 40px;
+  }
 }

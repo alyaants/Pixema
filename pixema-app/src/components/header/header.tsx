@@ -13,7 +13,7 @@ const Header = () => {
       <div className={style.headerContainer}>
         <Logo />
         <div className={style.search}>
-          <Search placeholder={"Search"} isDisabled={false} />
+          <Search  disabled={false}  />
         </div>
         <UserName username={"Nastya Pralich"} />
       </div>

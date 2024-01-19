@@ -2,6 +2,10 @@ import { useEffect, useRef, useState } from "react";
 import style from "./settings.module.scss";
 import Input from "../../components/input/input";
 import Title from "../../components/title/title";
+import Button, { ButtonTypes } from "../../components/button/button";
+import Switcher from "../../components/switcher/switcher";
+import { useThemeContext } from "../../components/context/theme/context";
+import { Theme } from "../../@types";
 
 const Settings = () => {
   const [name, setName] = useState("");
@@ -12,6 +16,14 @@ const Settings = () => {
 
   const inputRef = useRef<HTMLInputElement | null>(null);
 
+  const { themeValue } = useThemeContext();
+
+  const onThemeClick = (value: Theme) => () => {
+    onThemeClick(value);
+    // localStorage.setItem(Theme, value);
+  };
+  const isDark = themeValue === Theme.Dark;
+
   useEffect(() => {
     if (inputRef.current) {
       inputRef.current.focus();
@@ -21,15 +33,18 @@ const Settings = () => {
     <div className={style.settingsContainer}>
       <div className={style.profile}>
         <Title title={"Profile"} />
-        <div className={style.profilInp}>
-          <Input
-            placeholder={"Name"}
-            onСhange={setName}
-            value={name}
-            ref={inputRef}
-            className="input"
-            title="Name"
-          />
+        <div className={style.profilInps}>
+          <div className={style.input}>
+            <Input
+              placeholder={"Name"}
+              onСhange={setName}
+              value={name}
+              ref={inputRef}
+              title="Name"
+              className="input"
+            />
+          </div>
+
           <Input
             placeholder={"Email"}
             onСhange={setEmail}
@@ -71,8 +86,26 @@ const Settings = () => {
             <p>Use dark thema</p>
           </div>
           <div className={style.colorSwitcher}>
+            <Switcher
+              onClick={onThemeClick(isDark ? Theme.Light : Theme.Dark)}
+              state={isDark ? true : false}
+            />
           </div>
         </div>
+      </div>
+      <div className={style.buttons}>
+        <Button
+          type={ButtonTypes.Secondary}
+          title={"Cancel"}
+          onClick={() => {}}
+          className={style.cancelBtn}
+        />
+        <Button
+          type={ButtonTypes.Primary}
+          title={"Save"}
+          onClick={() => {}}
+          className={style.saveBtn}
+        />
       </div>
     </div>
   );

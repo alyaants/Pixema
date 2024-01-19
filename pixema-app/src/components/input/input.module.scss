@@ -41,7 +41,7 @@
   font-style: normal;
   font-weight: 600;
   line-height: 24px;
-  margin-bottom: 8px;
+  // margin-bottom: 8px;
 }
 .errorText {
   color: $error;
@@ -65,3 +65,5 @@
     border: 2px solid var(--Contextual-Colors-Light, #AFB2B6);
   }
 }
+
+

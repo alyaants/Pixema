@@ -1,0 +1,54 @@
+@import "../../styles/colors.scss";
+
+.switchWrapper {
+  height: 20px;
+  width: 32px;
+  background-color: $secondary;
+  padding: 0 2px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $light;
+  }
+}
+
+.switcher {
+  height: 16px;
+  width: 16px;
+  background-color: $white;
+  border-radius: 50%;
+}
+
+.disabledSwitchWrapperOff {
+  background-color: $secondary;
+  cursor: not-allowed;
+  &:hover {
+    background-color: $secondary;
+  }
+  div {
+    background-color: $light;
+  }
+}
+
+.switcherOnWrapper {
+  background-color: $primary;
+  justify-content: end;
+  &:hover {
+    background-color: $primary-secondary;
+  }
+}
+
+.disabledSwitchWrapperOn {
+  background-color: $primary;
+  justify-content: end;
+  &:hover {
+    background-color: $primary;
+  }
+  div {
+    background-color: $primary-secondary;
+  }
+}

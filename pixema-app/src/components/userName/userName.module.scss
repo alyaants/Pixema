@@ -1,30 +1,191 @@
-.userNameWrap {
-    width: 220px;
-    height: 56px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    // border: 1px solid black;
-    border-radius: 10px;
-
-    .initials {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 56px;
-        height: 56px;
-        border-radius: 10px;
-        background-color: #7B61FF;
-        color: white;
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: 24px;
-        /* 120% */
-        letter-spacing: 1px;
-    }
+@import "../../styles/colors.scss";
+.container {
+  display: flex;
+  align-items: center;
+  color: $white;
+  gap: 20px;
+  position: relative;
+  z-index: 10;
+  transition: 0.2s;
+  cursor: pointer;
 }
 
-.fullName{
-    color: white;
+.initials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 10px;
+  background-color: $primary;
+  color: $white;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
 }
+
+.username {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  color: $white;
+}
+
+.list {
+  background-color: $dark;
+  border-radius: 10px;
+  position: absolute;
+  top: 130%;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.item {
+  color: $white;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  padding: 15px 20px;
+  transition: 0.2s;
+  &:not(:last-child) {
+    border-bottom: 1px solid $graphite;
+  }
+  &:hover {
+    cursor: pointer;
+    color: $primary;
+  }
+}
+
+.lightUsername {
+  color: $black;
+}
+
+.lightIcon {
+  svg > path {
+    fill: $light;
+  }
+}
+
+.lightList {
+  background-color: $light;
+}
+
+.lightItem {
+  color: $black;
+  &:not(:last-child) {
+    border-bottom: 1px solid $secondary;
+  }
+  &:hover {
+    cursor: pointer;
+    color: $primary;
+  }
+}
+// .container {
+//   display: flex;
+//   width: 264px;
+//   cursor: pointer;
+// }
+// .userNameWrapper {
+//   height: 56px;
+//   display: flex;
+//   align-items: center;
+//   padding-right: 24px;
+//   position: relative;
+//   cursor: pointer;
+//   &::after,
+//   &::before {
+//     content: "";
+//     position: absolute;
+//     height: 2px;
+//     width: 7px;
+//     background-color: $light;
+//     right: 4px;
+//     top: 50%;
+//   }
+//   &::after {
+//     transform: rotate(-40deg);
+//   }
+//   &::before {
+//     transform: rotate(40deg);
+//     right: 8px;
+//   }
+//   &:hover::after,
+//   &:hover::before {
+//     background-color: $white;
+//   }
+// }
+
+// .initials {
+//   width: 56px;
+//   height: 56px;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   background-color: $primary;
+//   border-radius: 10px;
+//   margin-right: 20px;
+//   color: $white;
+// }
+
+// .dropdownWrapper {
+//   background-color: $dark;
+//   position: absolute;
+//   top: 12%;
+//   padding: 2px 0;
+//   border-radius: 10px;
+//   display: none;
+//   transition: top 0.5s;
+//   width: 264px;
+//   color: $white;
+//   z-index: 22;
+// }
+
+// .dropdownItem {
+//   padding: 15px 20px;
+//   border-bottom: 1px solid $graphite;
+//   cursor: pointer;
+//   transition: 0.3s;
+
+//   &:last-child {
+//     border-bottom: 0;
+//   }
+//   &:hover {
+//     color: $primary;
+//   }
+// }
+
+// .dropdownOpenedWrapper {
+//   display: block;
+//   cursor: default;
+// }
+
+// .dropdownWrapperLight {
+//   background-color: $white;
+//   border: 1px solid $light;
+
+//   .dropdownItem {
+//     border-bottom: 1px solid $light;
+
+//     &:last-child {
+//       border-bottom: 0;
+//     }
+//   }
+// }
+
+// .userNameWrapperLight {
+//   &:hover::after,
+//   &:hover::before {
+//     background-color: $graphite;
+//   }
+// }
+
+// p {
+//   color: $white;
+//   font-size: 16px;
+// }
+
+// .boxWrap{
+//     display: flex;
+//     align-items: center;
+// }
