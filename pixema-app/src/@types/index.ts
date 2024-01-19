@@ -19,15 +19,18 @@ export interface Post {
 
 export type PostsList = Post[];
 
+interface ImageProps {
+  src: string;
+ }
 
 export type MovieCard = {
-  status?: number | null;
+  status?: number;
   rating?: {
     kp?: number;
     imdb?: number;
     filmCritics?: number;
     russianFilmCritics?: number;
-    await?: number | null;
+    await?: number;
   };
   votes?: {
     kp?: number;
@@ -37,7 +40,7 @@ export type MovieCard = {
     await?: number;
   };
   backdrop?: {
-    url?: string;
+    url?: ImageProps;
     previewUrl?: string;
   };
   movieLength?: number;
@@ -65,13 +68,13 @@ export type MovieCard = {
   ticketsOnSale?: boolean;
   ageRating?: number;
   logo?: {
-    url: string;
+    url?: string;
   };
-  top10?: number | null;
+  top10?: number;
   top250?: number;
   isSeries?: boolean;
-  seriesLength?: number | null;
-  totalSeriesLength?: number | null;
+  seriesLength?: number;
+  totalSeriesLength?: number;
 }
 
 export type movieList = MovieCard[]

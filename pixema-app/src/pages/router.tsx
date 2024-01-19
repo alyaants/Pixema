@@ -26,12 +26,13 @@ const Router = () => {
         <Route path={RoutesList.AllMovies} element={<Header />}>
           <Route path={RoutesList.AllMovies} element={<AllMovies />} />;
           <Route path={RoutesList.SelectedMovie} element={<SelectedMovie />} />;
+          <Route path={RoutesList.Settings} element={<Settings />} />;
         </Route>
         <Route path={RoutesList.SignUp} element={<SignUp />} />;
         <Route path={RoutesList.SignIn} element={<SignIn />} />;
         <Route path={RoutesList.ResetPassword} element={<ResetPassword />} />;
         <Route path={RoutesList.NewPassword} element={<NewPassword />} />;
-        <Route path={RoutesList.Settings} element={<Settings />} />;
+        
       </Routes>
     </BrowserRouter>
   );

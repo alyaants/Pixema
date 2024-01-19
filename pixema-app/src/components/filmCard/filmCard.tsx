@@ -1,29 +1,18 @@
 import classNames from "classnames";
 import styles from "./filmCard.module.scss";
 import { useThemeContext } from "../context/theme/context";
-import { Theme } from "../../@types";
+import { MovieCard, Theme } from "../../@types";
 import { FavoritesIcon } from "../assets/icons/favorite/favorite";
 
-interface FilmCardProps {
-  poster?: string;
-  genres?: string;
-  ratingsSummary?: number;
-  id?: number;
-  title?: string;
 
-  onSavedClick?: () => void;
-  onShareClick?: () => void;
-  //   className;
-}
-
-const FilmCard = (props: FilmCardProps) => {
+const FilmCard = (props: MovieCard, ) => {
   const { themeValue } = useThemeContext();
   //   const favoriteMovies = useSelector(MovieSelectors.getFavoriteMovies);
   //   const favouriteIndex = favoriteMovies.findIndex((item) => item.id === id);
   return (
     <div className={styles.container}>
       <div className={styles.image}>
-        <img src={props.poster} alt="#" />
+        <img src={props.poster?.url} alt="#" />
       </div>
       <div
         className={classNames(styles.rating, {
@@ -32,19 +21,19 @@ const FilmCard = (props: FilmCardProps) => {
           // [styles.trend]: isTrend,
         })}
       >
-        {props.ratingsSummary}
+        {props.rating?.kp}
       </div>
 
       <div
         className={classNames(styles.title, {
           [styles.lightTitle]: themeValue === Theme.Light,
         })}
-        onClick={props.onSavedClick}
+        // onClick={props.onSavedClick}
       >
-        {props.title}
+        {props.name}
       </div>
       <div className={styles.genres}>
-        <div className={styles.genres}>{props.genres}</div>
+        <div className={styles.genres}>{props.genres?.map((item) => ` ${item.name}`)}</div>
       </div>
       <div
         className={classNames(

@@ -1,10 +1,10 @@
 import styles from "./filmList.module.scss";
-import { PostsList } from "../../../src/@types/index";
+import { MovieCard, PostsList } from "../../../src/@types/index";
 import FilmCard from "../filmCard/filmCard";
 import { useDispatch } from "react-redux";
 
 interface FilmListProps {
-  filmList: PostsList;
+  filmList: MovieCard[]
   isTrend?: boolean;
   isListLoading?: boolean;
 }
@@ -12,7 +12,7 @@ interface FilmListProps {
 const FilmList = (props: FilmListProps) => {
 
   
-  return props.filmList.length && !props.isListLoading ? (
+  return props.filmList.length ? (
     <div className={styles.filmListContainer}>
       {props.filmList.map((el) => {
         return (

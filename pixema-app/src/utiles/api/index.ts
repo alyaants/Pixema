@@ -9,7 +9,7 @@ const API = create({
 
 
 const getMovies = () => {
-    return API.get("v1.4/movie?page=3&limit=10");
+    return API.get("v1.4/movie?page=1&limit=10");
   };
   
 export default {getMovies}
