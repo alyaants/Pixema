@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import FormContainer from "../../components/formPageContainer/formPageContainer";
 import Input from "../../components/input/input";
 import style from "../signIn/signIn.module.scss";
+import { useNavigate } from "react-router-dom";
+import { RoutesList } from "../router";
 
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -18,6 +20,12 @@ const SignUp = () => {
     }
   }, []);
 
+  const navigate = useNavigate();
+
+  const onSingInClick = () => {
+    navigate(RoutesList.SignIn);
+  };
+
   return (
     <div className={style.container}>
       <div className={style.formContainer}>
@@ -28,7 +36,7 @@ const SignUp = () => {
           additionalText={
             <div className={style.additionalText}>
               {"Already have an account?"}{" "}
-              <span className={style.signIn}> Sign In</span>
+              <span className={style.signIn} onClick={onSingInClick}> Sign In</span>
             </div>
           }
         >

@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import FormContainer from "../../components/formPageContainer/formPageContainer";
 import Input from "../../components/input/input";
 import style from "./signIn.module.scss";
+import { useNavigate } from "react-router-dom";
+import { RoutesList } from "../router";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -13,6 +15,12 @@ const SignIn = () => {
       inputRef.current.focus();
     }
   }, []);
+  
+  const navigate = useNavigate();
+
+  const onSingUpClick = () => {
+    navigate(RoutesList.SignUp);
+  };
   return (
     <div className={style.container}>
       <div className={style.formContainer}>
@@ -23,7 +31,7 @@ const SignIn = () => {
           additionalText={
             <div className={style.additionalText}>
               {"Don’t have an account?"}{" "}
-              <span className={style.signIn}>Sign Up</span>
+              <span className={style.signIn} onClick={onSingUpClick}>Sign Up</span>
             </div>
           }
         >
