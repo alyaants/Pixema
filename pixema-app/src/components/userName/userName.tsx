@@ -2,13 +2,13 @@ import { FC, useState } from "react";
 
 import styles from "./userName.module.scss";
 import { useNavigate } from "react-router-dom";
-import classNames from "classnames";
 import { useThemeContext } from "../context/theme/context";
 import { RoutesList } from "../../pages/router";
 import { UserIcon } from "../assets/icons/user/user";
 import { Theme } from "../../@types";
 import { ArrowRightIcon } from "../assets/icons/arrow/arrowRight/arrowRight";
 import { ArrowDownIcon } from "../assets/icons/arrow/arrowDown/arrowDown";
+import classNames from "classnames";
 
 type UsernameProps = {
   username: string;

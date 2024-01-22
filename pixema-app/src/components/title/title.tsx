@@ -1,7 +1,8 @@
-import classNames from "classnames";
 import styles from "./title.module.scss";
 import { useThemeContext } from "../context/theme/context";
 import { Theme } from "../../@types";
+import classNames from "classnames";
+
 interface TitleProps {
   title: string;
   className?: string;

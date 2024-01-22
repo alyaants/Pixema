@@ -1,4 +1,5 @@
 import { create } from "apisauce";
+
   // https://api.kinopoisk.dev/v1.4/movie?page=1&limit=10
 const API = create({
   baseURL: "https://api.kinopoisk.dev/",
