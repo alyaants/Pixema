@@ -3,9 +3,18 @@ import styles from "./filmCard.module.scss";
 import { useThemeContext } from "../context/theme/context";
 import { MovieCard, Theme } from "../../@types";
 import { FavoritesIcon } from "../assets/icons/favorite/favorite";
+import { useNavigate } from "react-router-dom";
 
 
 const FilmCard = (props: MovieCard, ) => {
+
+  const navigate = useNavigate();
+
+  const onTitleClick = () => {
+    navigate(`movie/${props.id}`);
+  };
+
+
   const { themeValue } = useThemeContext();
   //   const favoriteMovies = useSelector(MovieSelectors.getFavoriteMovies);
   //   const favouriteIndex = favoriteMovies.findIndex((item) => item.id === id);
@@ -24,7 +33,7 @@ const FilmCard = (props: MovieCard, ) => {
         {props.rating?.kp}
       </div>
 
-      <div
+      <div onClick={onTitleClick}
         className={classNames(styles.title, {
           [styles.lightTitle]: themeValue === Theme.Light,
         })}

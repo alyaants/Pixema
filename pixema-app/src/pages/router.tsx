@@ -14,7 +14,7 @@ export enum RoutesList {
   SignIn = "/sign-in",
   ResetPassword = "/reset-password",
   NewPassword = "/new-password",
-  SelectedMovie = "/selected-movie",
+  SelectedMovie = "/movie/:id",
   Settings = "/settings",
   Default = "*",
 }

@@ -1,6 +1,8 @@
+@import "../../styles/colors.scss";
+
 .tabsListContainer{
 display: flex;
-width: 438px;
+width: 266px;
 height: 56px;
 padding-right: 0px;
 justify-content: center;
@@ -23,7 +25,7 @@ align-items: center;
 // border-radius: 5px;
 &:hover{
     cursor: pointer;
-    color: white;
+    background-color: $secondary;
 }
 }
 .disabled{

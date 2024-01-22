@@ -12,4 +12,7 @@ const getMovies = () => {
     return API.get("v1.4/movie?page=1&limit=10");
   };
   
-export default {getMovies}
+const getSingleMovie = (id:string) =>{
+  return API.get(`v1.4/movie/${id}`);
+}
+export default {getMovies, getSingleMovie}

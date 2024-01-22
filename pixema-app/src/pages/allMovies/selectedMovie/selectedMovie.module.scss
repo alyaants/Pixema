@@ -1,1 +1,102 @@
-@import 'styles'
+@import "../../../styles/colors.scss";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.selectedMovieConainer {
+    display: flex;
+}
+
+.selectedMovieImgContainer {
+    margin-right: 42px;
+}
+
+.selectedMovieImg {
+    height: 356px;
+    width: 266px;
+    background-color: white;
+    margin-bottom: 32px;
+    img{
+        width: 100px;
+        height: 100%;
+        overflow: hidden;
+        object-fit: cover;
+    }
+}
+
+.tabsList {
+    width: 266px;
+}
+
+.selectedMovieInfo {
+    display: flex;
+    flex-direction: column;
+
+    .mainInfoMovie {
+        display: flex;
+        flex-direction: column;
+
+
+        ul {
+            display: flex;
+            flex-direction: row;
+            list-style: none;
+
+            li {
+                color: $white;
+                margin-right: 10px;
+            }
+        }
+
+        h1 {
+            color: $white;
+            font-family: "Exo 2";
+            font-size: 40px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 60px;
+            /* 150% */
+        }
+
+        .movieRaiting {
+            color: $white;
+            display: flex;
+
+            p {
+                margin-right: 20px;
+            }
+        }
+
+        .movieDescription {
+            width: 880px;
+            margin-top: 40px;
+
+            p {
+                color: $white;
+                font-family: "Exo 2";
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 24px;
+                /* 150% */
+            }
+        }
+
+    }
+}
+
+.aboutMovieContainer{
+    margin-top: 40px;
+    .aboutMovieItem{
+        display: flex;
+        // justify-content: space-between;
+        margin-bottom: 20px;
+        p{
+            color:$white;
+            min-width: 100px;
+            margin-right: 50px;
+        }
+    }
+}
