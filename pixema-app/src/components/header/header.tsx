@@ -10,10 +10,11 @@ import { useThemeContext } from "../context/theme/context";
 import { RoutesList } from "../../pages/router";
 import Button, { ButtonTypes } from "../button/button";
 import { UserIcon } from "../assets/icons/user/user";
+import classNames from "classnames";
+import { Theme } from "../../@types";
 
 const Header = () => {
   const { themeValue } = useThemeContext();
-  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const isLoggedIn = useSelector(AuthSelectors.getLoggedIn);
@@ -22,12 +23,13 @@ const Header = () => {
   const onLoginButtonClick = () => {
     navigate(RoutesList.SignIn);
   };
-  const onLogout = () => {
-    dispatch(logoutUser());
-  };
 
   return (
-    <div className={style.headerContainerMain}>
+    <div
+      className={classNames(style.headerContainerMain, {
+        [style.lightContainer]: themeValue === Theme.Light,
+      })}
+    >
       <div className={style.headerContainer}>
         <Logo />
         <div className={style.search}>
@@ -45,7 +47,11 @@ const Header = () => {
         )}
       </div>
       <div className={style.content}>
-        <div className={style.links}>
+        <div
+          className={classNames(style.links, {
+            [style.lightLinks]: themeValue === Theme.Light,
+          })}
+        >
           <Links />
           <footer>© All Rights Reserved</footer>
         </div>

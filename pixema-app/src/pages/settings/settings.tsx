@@ -86,10 +86,7 @@ const Settings = () => {
             <p>Use dark thema</p>
           </div>
           <div className={style.colorSwitcher}>
-            <Switcher
-              onClick={onThemeClick(isDark ? Theme.Light : Theme.Dark)}
-              state={isDark ? true : false}
-            />
+            <Switcher />
           </div>
         </div>
       </div>

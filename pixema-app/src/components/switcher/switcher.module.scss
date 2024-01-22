@@ -1,54 +1,42 @@
 @import "../../styles/colors.scss";
 
-.switchWrapper {
-  height: 20px;
-  width: 32px;
-  background-color: $secondary;
-  padding: 0 2px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: start;
-  cursor: pointer;
-
-  &:hover {
-    background-color: $light;
+.containerSettings {
+  width: 85%;
+  .title {
+      margin-bottom: 16px;
+  }
+  .containerWrapper {
+      background-color: $dark;
+      border-radius: 20px;
+      padding: 24px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .titleDark {
+          font-size: 16px;
+          font-weight: 700;
+          line-height: 24px;
+          color: $white;
+          margin-bottom: 4px;
+      }
+      .descr {
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 24px;
+          color: $light;
+          margin-bottom: 4px;
+      }
   }
 }
 
-.switcher {
-  height: 16px;
-  width: 16px;
-  background-color: $white;
-  border-radius: 50%;
-}
-
-.disabledSwitchWrapperOff {
-  background-color: $secondary;
-  cursor: not-allowed;
-  &:hover {
-    background-color: $secondary;
-  }
-  div {
-    background-color: $light;
-  }
-}
-
-.switcherOnWrapper {
-  background-color: $primary;
-  justify-content: end;
-  &:hover {
-    background-color: $primary-secondary;
-  }
-}
-
-.disabledSwitchWrapperOn {
-  background-color: $primary;
-  justify-content: end;
-  &:hover {
-    background-color: $primary;
-  }
-  div {
-    background-color: $primary-secondary;
+.lightContainer {
+  .containerWrapper {
+      background-color: $light;
+      .titleDark {
+          color: $dark;
+      }
+      .descr {
+          color: $secondary;
+      }
   }
 }

@@ -2,7 +2,7 @@
 
 .headerContainerMain {
   background-color: $black;
-    // height: 100vh;
+  // height: 100vh;
   padding: 40px 62px 0;
   display: flex;
   justify-content: space-between;
@@ -42,5 +42,14 @@
     width: 2000px;
     margin: 0 auto 64px;
     flex: 1;
+  }
+}
+
+.lightContainer {
+  background-color: $white;
+}
+.lightLinks {
+  svg {
+    color: $dark;
   }
 }

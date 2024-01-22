@@ -2,7 +2,7 @@ import { createContext, useContext } from "react";
 import { Theme } from "../../../@types";
 
 const initialValues = {
-  themeValue: Theme.Dark,
+  themeValue: Theme.Light,
   onChangeTheme: (_: Theme) => () => {},
 };
 

@@ -17,12 +17,11 @@ export interface Post {
   // genres?: GenresData[];
 }
 
-
 export type PostsList = Post[];
 
 interface ImageProps {
   src: string;
- }
+}
 
 export type MovieCard = {
   status?: number;
@@ -76,6 +75,30 @@ export type MovieCard = {
   isSeries?: boolean;
   seriesLength?: number;
   totalSeriesLength?: number;
+};
+
+export type movieList = MovieCard[];
+
+export enum TabsType {
+  Rating = "rating",
+  Year = "year",
 }
 
-export type movieList = MovieCard[]
+export type TabProps = {
+  title: string;
+  onClick: () => void;
+  active?: boolean;
+};
+
+export type Tab = {
+  key: TabsType;
+  title: string;
+};
+
+export type TabsListType = Tab[];
+
+export type TabsListProps = {
+  tabsList: TabsListType;
+  activeTab: TabsType;
+  onClick: (tab: TabsType) => () => void;
+};
