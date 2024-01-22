@@ -4,6 +4,8 @@ import Input from "../../components/input/input";
 import style from "../signIn/signIn.module.scss";
 import { useNavigate } from "react-router-dom";
 import { RoutesList } from "../router";
+import { useDispatch } from "react-redux";
+import { signUpUser } from "../../redux/reducers/authSlice";
 
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -11,6 +13,7 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
+  const dispatch = useDispatch();
 
   const inputRef = useRef<HTMLInputElement | null>(null);
 
@@ -25,6 +28,14 @@ const SignUp = () => {
   const onSingInClick = () => {
     navigate(RoutesList.SignIn);
   };
+  const onSubmit = () => {
+    const data = {
+      username: name,
+      email,
+      password,
+    };
+    dispatch(signUpUser({ data, callback: () => {} }));
+  };
 
   return (
     <div className={style.container}>
@@ -32,11 +43,13 @@ const SignUp = () => {
         <FormContainer
           title={"Sign Up"}
           btnTitle={"Sign Up"}
-          onSubmit={() => {}}
+          onSubmit={onSubmit}
           additionalText={
             <div className={style.additionalText}>
-              {"Already have an account?"}{" "}
-              <span className={style.signIn} onClick={onSingInClick}> Sign In</span>
+              {"Already have an account?"}
+              <span className={style.signIn} onClick={onSingInClick}>
+                Sign In
+              </span>
             </div>
           }
         >

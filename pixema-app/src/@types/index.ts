@@ -17,6 +17,7 @@ export interface Post {
   // genres?: GenresData[];
 }
 
+
 export type PostsList = Post[];
 
 interface ImageProps {

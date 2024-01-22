@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import SignIn from "./signIn/signIn";
 import SignUp from "./signUp/signUp";
 import ResetPassword from "./resetPassword/resetPassword";
@@ -7,11 +7,16 @@ import Header from "../components/header/header";
 import AllMovies from "./allMovies/allMovies";
 import SelectedMovie from "./allMovies/selectedMovie/selectedMovie";
 import Settings from "./settings/settings";
+import RegistrationConfirmation from "./registrationConfirmation/registrationConfirmation";
+import { useDispatch, useSelector } from "react-redux";
+import { AuthSelectors, getUserInfo } from "../redux/reducers/authSlice";
+import { useEffect } from "react";
 
 export enum RoutesList {
   AllMovies = "/",
   SignUp = "/sign-up",
   SignIn = "/sign-in",
+  RegistrationConfirmation = "/activate/:uid/:token",
   ResetPassword = "/reset-password",
   NewPassword = "/new-password",
   SelectedMovie = "/movie/:id",
@@ -20,6 +25,13 @@ export enum RoutesList {
 }
 
 const Router = () => {
+  const isLoggedIn = useSelector(AuthSelectors.getLoggedIn);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (isLoggedIn) {
+      dispatch(getUserInfo());
+    }
+  }, [isLoggedIn]);
   return (
     <BrowserRouter>
       <Routes>
@@ -28,11 +40,20 @@ const Router = () => {
           <Route path={RoutesList.SelectedMovie} element={<SelectedMovie />} />;
           <Route path={RoutesList.Settings} element={<Settings />} />;
         </Route>
+        <Route
+          path={RoutesList.RegistrationConfirmation}
+          element={
+            !isLoggedIn ? (
+              <RegistrationConfirmation />
+            ) : (
+              <Navigate to={RoutesList.AllMovies} />
+            )
+          }
+        />
         <Route path={RoutesList.SignUp} element={<SignUp />} />;
         <Route path={RoutesList.SignIn} element={<SignIn />} />;
         <Route path={RoutesList.ResetPassword} element={<ResetPassword />} />;
         <Route path={RoutesList.NewPassword} element={<NewPassword />} />;
-        
       </Routes>
     </BrowserRouter>
   );

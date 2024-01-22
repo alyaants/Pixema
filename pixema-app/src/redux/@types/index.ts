@@ -1,9 +1,9 @@
-import { movieList } from "../../@types";
+import { PostsList, movieList } from "../../@types";
 
-export type PayloadDataAndCallback<Data> ={
+export type PayloadDataAndCallback<Data> = {
   data: Data;
   callback: () => void;
-}
+};
 
 export type SignUpUserData = {
   username: string;
@@ -17,23 +17,44 @@ export type SignUpResponseData = {
   id: number;
 };
 
-export type SignUpUserPayload = PayloadDataAndCallback<SignUpUserData>
+export type SignUpUserPayload = PayloadDataAndCallback<SignUpUserData>;
 
 export type PostData = {
   count: number;
   next: string;
   previous: null;
-  // results: PostsList;
-}
+  results: PostsList;
+};
 
-export type ActivateUserData ={
-  uid: string,
-  token: string
-}
+export type ActivateUserData = {
+  uid: string;
+  token: string;
+};
 
-export type ActivateUserPayload = PayloadDataAndCallback<ActivateUserData>
+export type ActivateUserPayload = PayloadDataAndCallback<ActivateUserData>;
 
 export type MovieData = {
   docs: movieList;
-}
+};
 
+export type SignInUserData = {
+  email: string;
+  password: string;
+};
+
+export type SignInUserPayload = PayloadDataAndCallback<SignInUserData>;
+
+export type SignInUserResponse = {
+  access: string;
+  refresh: string;
+};
+
+export type UserInfoResponse = {
+  username: string;
+  id: number;
+  email: string;
+};
+
+export type RefreshResponseData = {
+  access: string;
+};

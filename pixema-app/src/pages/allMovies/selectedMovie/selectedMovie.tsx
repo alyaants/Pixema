@@ -1,5 +1,4 @@
 import { title } from "process";
-import TabsList from "../../../components/tabsList/tabsList";
 import style from "./selectedMovie.module.scss";
 import { FavoritesIcon } from "../../../components/assets/icons/favorite/favorite";
 import { useDispatch, useSelector } from "react-redux";
@@ -30,7 +29,7 @@ const SelectedMovie = () => {
           <img src={singleMovie.poster?.url} alt="#" />
         </div>
         <div>
-          <TabsList isActive={true} className={style.tabsList} />
+          {/* <TabsList className={style.tabsList} /> */}
         </div>
       </div>
       <div className={style.selectedMovieInfo}>

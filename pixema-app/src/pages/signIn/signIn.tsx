@@ -4,20 +4,31 @@ import Input from "../../components/input/input";
 import style from "./signIn.module.scss";
 import { useNavigate } from "react-router-dom";
 import { RoutesList } from "../router";
+import { useDispatch } from "react-redux";
+import { signInUser } from "../../redux/reducers/authSlice";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const inputRef = useRef<HTMLInputElement | null>(null);
 
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   useEffect(() => {
     if (inputRef.current) {
       inputRef.current.focus();
     }
   }, []);
-  
-  const navigate = useNavigate();
 
+  const onSubmit = () => {
+    dispatch(
+      signInUser({
+        data: { email, password },
+        callback: () => navigate(RoutesList.AllMovies),
+      })
+    );
+  };
   const onSingUpClick = () => {
     navigate(RoutesList.SignUp);
   };
@@ -27,11 +38,13 @@ const SignIn = () => {
         <FormContainer
           title={"Sign In"}
           btnTitle={"Sign In"}
-          onSubmit={() => {}}
+          onSubmit={onSubmit}
           additionalText={
             <div className={style.additionalText}>
               {"Don’t have an account?"}{" "}
-              <span className={style.signIn} onClick={onSingUpClick}>Sign Up</span>
+              <span className={style.signIn} onClick={onSingUpClick}>
+                Sign Up
+              </span>
             </div>
           }
         >

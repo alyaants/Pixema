@@ -9,6 +9,8 @@ import { Theme } from "../../@types";
 import { ArrowRightIcon } from "../assets/icons/arrow/arrowRight/arrowRight";
 import { ArrowDownIcon } from "../assets/icons/arrow/arrowDown/arrowDown";
 import classNames from "classnames";
+import { useDispatch, useSelector } from "react-redux";
+import { AuthSelectors, logoutUser } from "../../redux/reducers/authSlice";
 
 type UsernameProps = {
   username: string;
@@ -17,13 +19,21 @@ type UsernameProps = {
 const Username: FC<UsernameProps> = ({ username }) => {
   const [isOpened, setOpened] = useState(false);
   const navigate = useNavigate();
+  const isLoggedIn = useSelector(AuthSelectors.getLoggedIn);
+  const dispatch = useDispatch();
 
   const { themeValue } = useThemeContext();
 
   const handleMenuOpened = () => {
     setOpened(!isOpened);
   };
+  const onLoginButtonClick = () => {
+    navigate(RoutesList.SignIn);
+  };
 
+  const onLogout = () => {
+    dispatch(logoutUser());
+  };
   const dropDownList = [
     {
       title: "Edit profile",
@@ -33,7 +43,10 @@ const Username: FC<UsernameProps> = ({ username }) => {
     },
     {
       title: "Log Out",
-      onClick: () => {},
+      onClick: () => {
+        dispatch(logoutUser());
+        navigate(RoutesList.SignIn);
+      },
       // {
       //   const users: UserListType[] = JSON.parse(
       //     localStorage.getItem(USERS_DATA) || "",
