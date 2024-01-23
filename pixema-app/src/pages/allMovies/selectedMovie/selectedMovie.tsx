@@ -11,6 +11,9 @@ import { useEffect } from "react";
 import Button, { ButtonTypes } from "../../../components/button/button";
 import { ShareIcon } from "../../../components/assets/icons/share/share";
 import FilmList from "../../../components/filmList/filmList";
+// import React from 'react'
+import ReactPlayer from 'react-player'
+
 
 const SelectedMovie = () => {
   const { id } = useParams();
@@ -19,6 +22,7 @@ const SelectedMovie = () => {
   const navigate = useNavigate();
 
   const singleMovie = useSelector(MovieSelectors.getSingleMovie);
+  const urlVideo = singleMovie?.videos?.trailers.map((url) => `${url.url}`)
 
   // const similarMovies = singleMovie?.similarMovies
 
@@ -35,8 +39,8 @@ const SelectedMovie = () => {
           <img src={singleMovie.poster?.url} alt="#" />
         </div>
         <div className={style.tabsList}>
-        <Button  type={ButtonTypes.Secondary} title={<FavoritesIcon />} onClick={() => {}} />
-        <Button  type={ButtonTypes.Secondary} title={<ShareIcon/>} onClick={() => {}} />
+        <Button  type={ButtonTypes.Secondary} title={<FavoritesIcon />} onClick={() => {}} className={style.buttons}/>
+        <Button  type={ButtonTypes.Secondary} title={<ShareIcon/>} onClick={() => {}} className={style.buttons}/>
         </div>
         
       </div>
@@ -110,9 +114,14 @@ const SelectedMovie = () => {
             </p>
           </div>
         </div>
+        <div className={style.playerMovie}>
+<ReactPlayer url= {urlVideo}/>
+        </div>
         <div className={style.movieReccomendations}>
+          <span>Trailer</span>
          <FilmList filmList={singleMovie?.similarMovies}   />
       </div>
+
       </div>
     </div>
       

@@ -29,7 +29,13 @@
 }
 
 .tabsList {
-  width: 266px;
+  width: 100%;
+  display: flex;
+  .buttons{
+    border-radius: 1px;
+    border: none;
+    
+  }
 }
 
 .selectedMovieInfo {
@@ -98,6 +104,14 @@
       min-width: 100px;
       margin-right: 50px;
     }
+  }
+}
+.playerMovie{
+
+  margin-top: 30px;
+  margin-bottom: 50px;
+  span{
+    color:$white
   }
 }
 

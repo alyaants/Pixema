@@ -219,11 +219,8 @@ export type MovieCardById = {
     totalSeriesLength?: any;
     networks?: any;
     videos?: {
-      trailers?: {
-        url?: string;
-        name?: string;
-        site?: string;
-        type?: string;
+      trailers: {
+        url: string;
       }[];
     };
   }

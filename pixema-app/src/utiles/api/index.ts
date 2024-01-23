@@ -7,13 +7,15 @@ import {
 
 // https://api.kinopoisk.dev/v1.4/movie?page=1&limit=10
 
+// XVE8C2B-F5FMDQE-K3XE9JH-R2G27RF
+
 // E2QYT1X-DJN4CDF-JRXF6KG-2VVE2V1
 
 // 0QERFNC-X9N4F35-GVCR05K-NPH6VH0
 const API = create({
   baseURL: "https://api.kinopoisk.dev/",
   headers: {
-    "X-API-KEY": "0QERFNC-X9N4F35-GVCR05K-NPH6VH0",
+    "X-API-KEY": "XVE8C2B-F5FMDQE-K3XE9JH-R2G27RF",
   },
 });
 
