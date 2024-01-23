@@ -1,11 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../store";
-import { MovieCard, movieList } from "../../@types";
+import { MovieCard, MovieCardById, movieList } from "../../@types";
 import SelectedMovie from "../../pages/allMovies/selectedMovie/selectedMovie";
 
 type InitialState = {
   movieList: movieList;
-  singlMovie: MovieCard | null;
+  singlMovie: MovieCardById | null;
   myMovie: movieList;
 };
 
@@ -24,7 +24,7 @@ const MovieSlice = createSlice({
       state.movieList = action.payload;
     },
     getSingleMovie: (_, __: PayloadAction<string>) => {},
-    setSingleMovie: (state, action: PayloadAction<MovieCard | null>) => {
+    setSingleMovie: (state, action: PayloadAction<MovieCardById | null>) => {
       state.singlMovie = action.payload;
     },
     getMyMovie: (_, __: PayloadAction<undefined>) => {},

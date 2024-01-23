@@ -4,7 +4,7 @@ import { ApiResponse } from "apisauce";
 import API from '../../utiles/api';
 import { MovieData } from "../@types";
 import { PayloadAction } from "@reduxjs/toolkit";
-import { MovieCard } from "../../@types";
+import { MovieCard, MovieCardById } from "../../@types";
 
 function* movieWorker(){
     const response: ApiResponse<MovieData> = yield call(API.getMovies);
@@ -16,7 +16,7 @@ function* movieWorker(){
 }  
 
 function* singlMovieWorker(action: PayloadAction<string>){
-  const response: ApiResponse<MovieCard> = yield call(API.getSingleMovie, action.payload );
+  const response: ApiResponse<MovieCardById> = yield call(API.getSingleMovie, action.payload );
   if (response.ok && response.data) {
     yield put(setSingleMovie(response.data));
   } else {

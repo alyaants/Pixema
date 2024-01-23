@@ -5,15 +5,20 @@ import { useThemeContext } from "../context/theme/context";
 import { LOCAL_STORAGE_THEME } from "../../utiles/constants";
 import { Theme } from "../../@types";
 import classNames from "classnames";
+import { useDispatch } from "react-redux";
+import { setThemeValue } from "../../redux/reducers/themeSlicer";
 
 type SwitchProps = {
   disabled?: boolean;
   onClick?: () => void;
   state?: boolean;
 };
+
+
 const Switcher: FC<SwitchProps> = ({ disabled, onClick, state }) => {
   const { themeValue, onChangeTheme } = useThemeContext();
   const [switchState, setSwitchState] = useState(true);
+  const dispatch = useDispatch()
   // let lokStorGetTheme = localStorage.getItem(LOCAL_STORAGE_THEME)
 
   useEffect(() => {
@@ -33,6 +38,8 @@ const Switcher: FC<SwitchProps> = ({ disabled, onClick, state }) => {
     const newTheme = switchState ? Theme.Light : Theme.Dark;
     onChangeTheme(newTheme);
 
+
+    dispatch(setThemeValue(newTheme))
     localStorage.setItem(LOCAL_STORAGE_THEME, JSON.stringify(newTheme));
   };
 

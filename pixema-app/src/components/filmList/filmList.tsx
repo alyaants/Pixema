@@ -1,10 +1,10 @@
 import styles from "./filmList.module.scss";
-import { MovieCard, PostsList } from "../../../src/@types/index";
+import { MovieCard, MovieCardById, PostsList, SimilarMovies } from "../../../src/@types/index";
 import FilmCard from "../filmCard/filmCard";
 import { useDispatch } from "react-redux";
 
 interface FilmListProps {
-  filmList: MovieCard[]
+  filmList: MovieCard[] | SimilarMovies[] 
   isTrend?: boolean;
   isListLoading?: boolean;
 }

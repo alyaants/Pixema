@@ -1,18 +1,19 @@
 import classNames from "classnames";
 import styles from "./filmCard.module.scss";
 import { useThemeContext } from "../context/theme/context";
-import { MovieCard, Theme } from "../../@types";
+import { MovieCard, MovieCardById, Theme } from "../../@types";
 import { FavoritesIcon } from "../assets/icons/favorite/favorite";
 import { useNavigate } from "react-router-dom";
 
 
-const FilmCard = (props: MovieCard, ) => {
+const FilmCard = (props: MovieCard | MovieCardById, ) => {
 
   const navigate = useNavigate();
 
   const onTitleClick = () => {
     navigate(`movie/${props.id}`);
   };
+
 
 
   const { themeValue } = useThemeContext();
