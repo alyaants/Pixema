@@ -15,7 +15,7 @@ import {
 const API = create({
   baseURL: "https://api.kinopoisk.dev/",
   headers: {
-    "X-API-KEY": "XVE8C2B-F5FMDQE-K3XE9JH-R2G27RF",
+    "X-API-KEY": "E2QYT1X-DJN4CDF-JRXF6KG-2VVE2V1",
   },
 });
 

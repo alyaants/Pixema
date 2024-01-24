@@ -11,7 +11,7 @@ const FilmCard = (props: MovieCard | MovieCardById, ) => {
   const navigate = useNavigate();
 
   const onTitleClick = () => {
-    navigate(`movie/${props.id}`);
+    navigate(`/movie/${props.id}`);
   };
 
 

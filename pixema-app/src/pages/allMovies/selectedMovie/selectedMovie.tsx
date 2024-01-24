@@ -115,7 +115,7 @@ const SelectedMovie = () => {
           </div>
         </div>
         <div className={style.playerMovie}>
-<ReactPlayer url= {urlVideo}/>
+<ReactPlayer url= {singleMovie.videos?.trailers.map((video) => video.url)}/>
         </div>
         <div className={style.movieReccomendations}>
           <span>Trailer</span>
