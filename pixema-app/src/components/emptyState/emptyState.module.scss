@@ -1,0 +1,26 @@
+@import "../../styles/colors.scss";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  flex: 1;
+  align-items: center;
+}
+
+.infoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 22px;
+}
+
+.description {
+  font-weight: 500;
+  font-size: 18px;
+}

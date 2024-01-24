@@ -1,4 +1,4 @@
-import { PostsList, movieList } from "../../@types";
+import { MovieCard, PostsList, movieList } from "../../@types";
 
 export type PayloadDataAndCallback<Data> = {
   data: Data;
@@ -35,6 +35,7 @@ export type ActivateUserPayload = PayloadDataAndCallback<ActivateUserData>;
 
 export type MovieData = {
   docs: movieList;
+  results: movieList;
 };
 
 export type SignInUserData = {
@@ -57,4 +58,20 @@ export type UserInfoResponse = {
 
 export type RefreshResponseData = {
   access: string;
+};
+
+export type SearchPayload = {
+  page: number;
+  query: string;
+};
+
+export type SearchResponse = {
+  page: number;
+  results: MovieCard[];
+};
+
+export type SetSearchedMoviesPayload = {
+  movieList: movieList;
+  isOverwrite: boolean;
+  total_pages: number;
 };

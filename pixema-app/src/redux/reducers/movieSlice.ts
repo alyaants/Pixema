@@ -7,12 +7,14 @@ type InitialState = {
   movieList: movieList;
   singlMovie: MovieCardById | null;
   myMovie: movieList;
+  searchedMovies: movieList,
 };
 
 const initialState: InitialState = {
   movieList: [],
   singlMovie: null,
   myMovie: [],
+  searchedMovies: [],
 };
 
 const MovieSlice = createSlice({
@@ -31,6 +33,11 @@ const MovieSlice = createSlice({
     setMyMovie: (state, action: PayloadAction<movieList>) => {
       state.myMovie = action.payload;
     },
+
+    getSearchedMovies: (_, __: PayloadAction<string>) => {},
+    setSearchedMovies: (state, action: PayloadAction<movieList>) => {
+      state.searchedMovies = action.payload;
+    },
   },
 });
 
@@ -41,12 +48,15 @@ export const {
   setSingleMovie,
   getMyMovie,
   setMyMovie,
+  getSearchedMovies,
+  setSearchedMovies, 
 } = MovieSlice.actions;
 
 export const MovieSelectors = {
   getAllMovies: (state: RootState) => state.movieReducer.movieList,
   getSingleMovie: (state: RootState) => state.movieReducer.singlMovie,
   getMyMovie: (state: RootState) => state.movieReducer.myMovie,
+  getSearchedMovies: (state: RootState) => state.movieReducer.searchedMovies,
 };
 
 export default MovieSlice.reducer;

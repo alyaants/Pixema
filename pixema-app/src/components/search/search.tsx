@@ -8,50 +8,63 @@ import { FilterIcon } from "../assets/icons/filter/filter";
 
 interface SearchProps {
   disabled?: boolean;
-};
+}
 
-const Search= (props:SearchProps) => {
+const Search = (props: SearchProps) => {
   const navigate = useNavigate();
-  const [searchValue, setSearchValue] = useState("");
 
+  const [isSearch, setSearch] = useState(false);
+  const [inputValue, setInputValue] = useState("");
 
-  const onSearchClick = () => {
-    searchValue.length > 0 && navigate(`/search/${searchValue}`);
+  const handleSearchOpened = () => {
+    setSearch(!isSearch);
+    if (isSearch && inputValue) {
+      navigate(`movie/${inputValue}`);
+      setInputValue("");
+    }
   };
 
-  const onEnterDown = (event: KeyboardEvent<HTMLInputElement>) => {
+  const onKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
-      onSearchClick();
+      handleSearchOpened();
     }
   };
 
   return (
-    <div className={styles.searchWrapper}>
-      <Input
-        value={searchValue}
-        onСhange={setSearchValue}
-        placeholder="Search"
-        className={styles.search}
-      />
-      <div
-        className={classNames(styles.magnifier, 
-        //   {
-        //   [styles.filterLight]: isLight,
-        // }
-        )}
-        onClick={onSearchClick}
-      >
-        <SearchIcon />
-      </div>
-      <div
-        className={classNames(styles.filter, {
-          // [styles.disabledFilter]: props.disabled,
-          // [styles.filterLight]: props.isLight,
-        })}
-        // onClick={props.disabled ? () => {} : props.onFilterClick}
-      >
-        <FilterIcon />
-      </div>
+    <div>
+      {isSearch ? (
+        <div className={styles.searchWrapper}>
+          <Input
+            value={inputValue}
+            onСhange={setInputValue}
+            placeholder="Search"
+            className={styles.search}
+            onKeyDown={onKeyDown}
+          />
+          <div
+            className={classNames(
+              styles.magnifier
+              //   {
+              //   [styles.filterLight]: isLight,
+              // }
+            )}
+            onClick={handleSearchOpened}
+          >
+            <SearchIcon />
+          </div>
+          <div
+            className={classNames(styles.filter, {
+              // [styles.disabledFilter]: props.disabled,
+              // [styles.filterLight]: props.isLight,
+            })}
+            // onClick={props.disabled ? () => {} : props.onFilterClick}
+          >
+            <FilterIcon />
+          </div>
+        </div>
+      ) : (
+        <div></div>
+      )}
     </div>
   );
 };

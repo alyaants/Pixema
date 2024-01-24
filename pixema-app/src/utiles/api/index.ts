@@ -63,6 +63,10 @@ const getUserInfo = (token: string) => {
   );
 };
 
+const getSearch = ( query?: string) => {
+  return API.get(`v1.4/movie/search`, { query, limit: 10 });
+};
+
 export default {
   getMovies,
   getSingleMovie,
@@ -72,4 +76,5 @@ export default {
   verifyToken,
   refreshToken,
   getUserInfo,
+  getSearch,
 };

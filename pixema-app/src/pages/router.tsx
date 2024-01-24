@@ -11,6 +11,7 @@ import RegistrationConfirmation from "./registrationConfirmation/registrationCon
 import { useDispatch, useSelector } from "react-redux";
 import { AuthSelectors, getUserInfo } from "../redux/reducers/authSlice";
 import { useEffect } from "react";
+import Search from "./search/search";
 
 export enum RoutesList {
   AllMovies = "/",
@@ -21,6 +22,7 @@ export enum RoutesList {
   NewPassword = "/new-password",
   SelectedMovie = "/movie/:id",
   Settings = "/settings",
+  Search = "/movies/:query ",
   Default = "*",
 }
 
@@ -54,6 +56,7 @@ const Router = () => {
         <Route path={RoutesList.SignIn} element={<SignIn />} />;
         <Route path={RoutesList.ResetPassword} element={<ResetPassword />} />;
         <Route path={RoutesList.NewPassword} element={<NewPassword />} />;
+        <Route path={RoutesList.Search} element={<Search />} />
       </Routes>
     </BrowserRouter>
   );
