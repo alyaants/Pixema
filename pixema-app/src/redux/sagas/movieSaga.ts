@@ -41,8 +41,8 @@ function* getSearchedMovieWorker(action: PayloadAction<string>) {
   );
   if (response.ok && response.data) {
     yield put(
-      setSearchedMovies(response.data.results),
-    );
+      setSearchedMovies(response.data.docs),
+    ); console.log(111);
   } else {
     console.error("Searched Movie error", response.problem);
   }

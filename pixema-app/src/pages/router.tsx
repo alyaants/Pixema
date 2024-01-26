@@ -22,7 +22,7 @@ export enum RoutesList {
   NewPassword = "/new-password",
   SelectedMovie = "/movie/:id",
   Settings = "/settings",
-  Search = "/movies/:query ",
+  Search = "/movies/:search",
   Default = "*",
 }
 
@@ -41,6 +41,7 @@ const Router = () => {
           <Route path={RoutesList.AllMovies} element={<AllMovies />} />;
           <Route path={RoutesList.SelectedMovie} element={<SelectedMovie />} />;
           <Route path={RoutesList.Settings} element={<Settings />} />;
+          <Route path={RoutesList.Search} element={<Search />} />
         </Route>
         <Route
           path={RoutesList.RegistrationConfirmation}
@@ -56,7 +57,7 @@ const Router = () => {
         <Route path={RoutesList.SignIn} element={<SignIn />} />;
         <Route path={RoutesList.ResetPassword} element={<ResetPassword />} />;
         <Route path={RoutesList.NewPassword} element={<NewPassword />} />;
-        <Route path={RoutesList.Search} element={<Search />} />
+        
       </Routes>
     </BrowserRouter>
   );

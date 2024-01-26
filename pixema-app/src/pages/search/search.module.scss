@@ -3,6 +3,7 @@
 .container{
     margin-top: 64px;
     display: flex;
-    flex-direction: column;
+    // flex-direction: column;
     gap: 40px;
+    flex-wrap: wrap ;
 }

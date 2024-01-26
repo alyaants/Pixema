@@ -16,6 +16,8 @@ const Search = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const searchedMovie = useSelector(MovieSelectors.getSearchedMovies);
+  console.log(searchedMovie);
+  
 
   useEffect(() => {
     if (!search) {
@@ -24,15 +26,19 @@ const Search = () => {
       dispatch(getSearchedMovies(search));
     }
   }, [search]);
+
+
   return (
     <div>
       <Title title={`Search results: ${search}`} />
-      <div className={style.container}>
+      <div >
         {searchedMovie.length ? (
           <>
-            {searchedMovie.map((movie) => {
+          <div className={style.container}>{searchedMovie.map((movie) => {
               return <FilmCard {...movie} />;
             })}
+            </div>
+            
           </>
         ) : (
           <EmptyState

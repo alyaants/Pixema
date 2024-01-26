@@ -4,7 +4,7 @@ import Links from "../links/links";
 import UserName from "../userName/userName";
 import style from "./header.module.scss";
 import { Logo } from "../assets/icons/logo/logo";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { AuthSelectors } from "../../redux/reducers/authSlice";
 import { useThemeContext } from "../context/theme/context";
 import { RoutesList } from "../../pages/router";
@@ -16,10 +16,12 @@ import { useState } from "react";
 import { SearchIcon } from "../assets/icons/searchIcon";
 import { FilterIcon } from "../assets/icons/filter/filter";
 import Input from "../input/input";
+import { getSearchedMovies } from "../../redux/reducers/movieSlice";
 
 const Header = () => {
   const { themeValue } = useThemeContext();
   const navigate = useNavigate();
+  const dispatch = useDispatch()
 
   const isLoggedIn = useSelector(AuthSelectors.getLoggedIn);
   const userInfo = useSelector(AuthSelectors.getUserInfo);
@@ -34,8 +36,12 @@ const Header = () => {
   const handleSearchOpened = () => {
     setSearch(!isSearch);
     if (isSearch && inputValue) {
-      navigate(`movie/${inputValue}`);
+      console.log(444);
+      dispatch(getSearchedMovies(inputValue))
+      console.log('sffe');
+      navigate(`/movies/${inputValue}`)
       setInputValue("");
+      console.log(558754);
     }
   };
 
