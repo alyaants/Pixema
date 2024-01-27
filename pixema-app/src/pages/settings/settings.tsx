@@ -6,6 +6,7 @@ import Button, { ButtonTypes } from "../../components/button/button";
 import Switcher from "../../components/switcher/switcher";
 import { useThemeContext } from "../../components/context/theme/context";
 import { Theme } from "../../@types";
+import classNames from "classnames";
 
 const Settings = () => {
   const [name, setName] = useState("");
@@ -18,12 +19,6 @@ const Settings = () => {
 
   const { themeValue } = useThemeContext();
 
-  const onThemeClick = (value: Theme) => () => {
-    onThemeClick(value);
-    // localStorage.setItem(Theme, value);
-  };
-  const isDark = themeValue === Theme.Dark;
-
   useEffect(() => {
     if (inputRef.current) {
       inputRef.current.focus();
@@ -33,7 +28,9 @@ const Settings = () => {
     <div className={style.settingsContainer}>
       <div className={style.profile}>
         <Title title={"Profile"} />
-        <div className={style.profilInps}>
+        <div className={classNames(style.profilInpts, {
+        [style.lightProfilInpts]: themeValue === Theme.Light,
+      })}>
           <div className={style.input}>
             <Input
               placeholder={"Name"}
@@ -55,14 +52,16 @@ const Settings = () => {
       </div>
       <div className={style.password}>
         <Title title={"Password"} />
-        <div className={style.passwordInps}>
+        <div className={classNames(style.passwordInpts, {
+        [style.lightPasswordInpts]: themeValue === Theme.Light,
+      })}>
           <Input
             placeholder={"Password"}
             onСhange={setPassword}
             value={password}
             title="Password"
           />
-          <div className={style.passwordInp}>
+          <div className={style.passwordInpt}>
             <Input
               placeholder={"New password"}
               onСhange={setNewPassword}
@@ -80,7 +79,9 @@ const Settings = () => {
       </div>
       <div className={style.colorMode}>
         <Title title={"Color mode"} />
-        <div className={style.colorModeInf}>
+        <div className={classNames(style.colorModeInf, {
+        [style.lightColorModeInf]: themeValue === Theme.Light,
+      })}>
           <div className={style.colorText}>
             <span>Dark</span>
             <p>Use dark thema</p>

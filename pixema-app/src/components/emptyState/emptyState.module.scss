@@ -6,6 +6,15 @@
   gap: 30px;
   flex: 1;
   align-items: center;
+  color: $white;
+}
+.icon{
+  margin-top: 50px;
+  width: 450px;
+  height: 450px;
+  svg  {
+    fill: white;
+  }
 }
 
 .infoContainer {
@@ -17,10 +26,17 @@
 
 .title {
   font-weight: 600;
-  font-size: 22px;
+  font-size: 26px;
 }
 
 .description {
   font-weight: 500;
   font-size: 18px;
+}
+
+.lightContainer{
+  color: $dark;
+  svg  {
+    fill: $dark;
+  }
 }

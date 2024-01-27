@@ -58,7 +58,7 @@ const Header = () => {
       })}
     >
       <div className={style.headerContainer}>
-        <Logo />
+      {themeValue === Theme.Dark ? <Logo /> : <Logo fill={"#000"} />}
         <div className={style.search}>
       
             <div className={style.searchWrapper}>
@@ -100,7 +100,6 @@ const Header = () => {
           })}
         >
           <Links />
-          <footer>© All Rights Reserved</footer>
         </div>
         <div className={style.mainContent}>
           <Outlet />

@@ -1,4 +1,4 @@
-@import "src/styles/colors";
+@import "../../styles/colors.scss";
 
 .container {
   flex: 1;
@@ -62,7 +62,12 @@
   .input{
     background-color: $white;
     color: $black;
-    border: 2px solid var(--Contextual-Colors-Light, #AFB2B6);
+    border: 2px solid $secondary;
+    &:hover,
+    &:focus {
+      border-color: $primary;
+      color: $white;
+    }
   }
 }
 

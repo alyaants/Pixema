@@ -43,7 +43,7 @@ const FilmCard = (props: MovieCard | MovieCardById, ) => {
         {props.name}
       </div>
       <div className={styles.genres}>
-        <div className={styles.genres}>{props.genres?.map((item) => ` ${item.name}`)}</div>
+        <div className={styles.genres}>{props.genres?.map((item) => ` ${item.name} •`)}</div>
       </div>
       <div
         className={classNames(

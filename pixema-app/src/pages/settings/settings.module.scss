@@ -1,4 +1,4 @@
-@import "src/styles/colors";
+@import "../../styles/colors.scss";
 
 .settingsContainer {
   width: 1186px;
@@ -6,7 +6,7 @@
   flex-direction: column;
   flex: 1;
 }
-.profilInps {
+.profilInpts {
   background-color: $dark;
   padding: 40px;
   border-radius: 10px;
@@ -18,7 +18,7 @@
     margin-right: 40px;
   }
 }
-.passwordInps {
+.passwordInpts {
   background-color: $dark;
   padding: 40px;
   border-radius: 10px;
@@ -26,7 +26,7 @@
   justify-content: space-between;
   margin-bottom: 40px;
 }
-.passwordInp {
+.passwordInpt {
   width: 533px;
   display: flex;
   flex-direction: column;
@@ -61,5 +61,17 @@
   .saveBtn {
     padding: 16px 108px;
     margin-left: 40px;
+  }
+}
+
+.lightProfilInpts,
+.lightPasswordInpts,
+.lightColorModeInf {
+  background-color: $light;
+  .colorText {
+    color: $dark;
+    p {
+      color: $graphite;
+    }
   }
 }

@@ -8,6 +8,8 @@
   z-index: 10;
   transition: 0.2s;
   cursor: pointer;
+  width: 264px;
+  justify-content: space-between;
 }
 
 .initials {
@@ -25,7 +27,7 @@
 }
 
 .username {
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 600;
   line-height: 24px;
   color: $white;
