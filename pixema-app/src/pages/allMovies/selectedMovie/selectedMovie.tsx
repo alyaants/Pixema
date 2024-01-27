@@ -15,6 +15,7 @@ import { useThemeContext } from "../../../components/context/theme/context";
 import classNames from "classnames";
 import { Theme } from "../../../@types";
 import { ImdbIcon } from "../../../components/assets/icons/imdb";
+import SimilarMoviesSlider from "../../../components/slider/slider";
 
 const SelectedMovie = () => {
   const { id } = useParams();
@@ -142,8 +143,7 @@ const SelectedMovie = () => {
           />
         </div>
         <div className={style.movieReccomendations}>
-          <span>Recommendations</span>
-          <FilmList filmList={singleMovie?.similarMovies} />
+          <SimilarMoviesSlider similarMovies={singleMovie?.similarMovies} />
         </div>
       </div>
     </div>

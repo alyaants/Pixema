@@ -1,8 +1,7 @@
-import { useEffect, FC, useState } from "react";
+import { FC, useCallback, useEffect, useState } from "react";
 import Switch from "react-switch";
 import style from "./switcher.module.scss";
 import { useThemeContext } from "../context/theme/context";
-import { LOCAL_STORAGE_THEME } from "../../utiles/constants";
 import { Theme } from "../../@types";
 import classNames from "classnames";
 import { useDispatch } from "react-redux";
@@ -10,38 +9,46 @@ import { setThemeValue } from "../../redux/reducers/themeSlicer";
 
 type SwitchProps = {
   disabled?: boolean;
-  onClick?: () => void;
-  state?: boolean;
 };
 
-
-const Switcher: FC<SwitchProps> = ({ disabled, onClick, state }) => {
+const Switcher: FC<SwitchProps> = ({ disabled }) => {
   const { themeValue, onChangeTheme } = useThemeContext();
-  const [switchState, setSwitchState] = useState(true);
-  const dispatch = useDispatch()
-  // let lokStorGetTheme = localStorage.getItem(LOCAL_STORAGE_THEME)
+  const dispatch = useDispatch();
+
+  const [switchState, setSwitchState] = useState<boolean | null>(null);
+
+  const onChange = useCallback(
+    (checked: boolean) => {
+      setSwitchState(checked);
+      const newTheme = checked ? Theme.Light : Theme.Dark;
+      onChangeTheme(newTheme);
+      dispatch(setThemeValue(newTheme));
+      localStorage.setItem("Theme", JSON.stringify(newTheme));
+    },
+    [onChangeTheme, dispatch]
+  );
 
   useEffect(() => {
-    const lokStorGetTheme = localStorage.getItem(LOCAL_STORAGE_THEME);
-    if (lokStorGetTheme) {
-      const savedTheme = JSON.parse(lokStorGetTheme);
+    const initializeTheme = async () => {
+      // Проверяем сохраненную тему в localStorage
+      const savedTheme = localStorage.getItem("Theme");
+      if (savedTheme) {
+        setSwitchState(JSON.parse(savedTheme) === Theme.Light);
+        onChangeTheme(JSON.parse(savedTheme));
+        dispatch(setThemeValue(JSON.parse(savedTheme)));
+      } else {
+        // Если тема не сохранена, устанавливаем светлую тему по умолчанию
+        setSwitchState(true);
+      }
+    };
 
-      setSwitchState(savedTheme === Theme.Dark); // Установите начальное состояние свитчера на основе сохраненной темы
-      onChangeTheme(savedTheme); // Примените сохраненную тему
-    }
-  }, []);
+    initializeTheme();
+  }, [onChangeTheme, dispatch]);
 
-  const handleChange = () => {
-    // Изменяем состояние свитчера
-    setSwitchState((prevState: any) => !prevState);
-
-    const newTheme = switchState ? Theme.Light : Theme.Dark;
-    onChangeTheme(newTheme);
-
-
-    dispatch(setThemeValue(newTheme))
-    localStorage.setItem(LOCAL_STORAGE_THEME, JSON.stringify(newTheme));
-  };
+  if (switchState === null) {
+    // Пока идет инициализация, можно вернуть заглушку или null
+    return null;
+  }
 
   return (
     <div
@@ -57,12 +64,10 @@ const Switcher: FC<SwitchProps> = ({ disabled, onClick, state }) => {
         activeBoxShadow="none"
         offColor={themeValue ? "#80858B" : "#AFB2B6"}
         onColor={disabled ? "#7B61FF" : "#917CFF"}
-        // offColor={'#AFB2B6'}
-        // onColor={'#917CFF'}
         checkedIcon={false}
         uncheckedIcon={false}
         disabled={disabled}
-        onChange={handleChange}
+        onChange={onChange}
         checked={switchState}
       />
     </div>

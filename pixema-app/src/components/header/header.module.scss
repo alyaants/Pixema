@@ -1,6 +1,7 @@
 @import "../../styles/colors.scss";
 
 .headerContainerMain {
+  position: relative;
   background-color: $black;
   // height: 100vh;
   padding: 40px 62px 0;
@@ -138,7 +139,6 @@
   }
 }
 
-
-.search{
+.search {
   width: 100%;
 }

@@ -1,0 +1,45 @@
+@import "../../styles/colors.scss";
+
+button {
+  margin-top: 10px;
+  cursor: pointer;
+  background-color: $primary;
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  display: flex;
+  height: 40px;
+  width: 60px;
+  justify-content: center;
+  align-items: center;
+  &:hover {
+    background-color: $primary-secondary;
+  }
+}
+
+.slick-slide {
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.btns {
+  display: flex;
+  margin-bottom: 37px;
+  justify-content: end;
+}
+.similarMoviesSlider {
+  margin-top: 56px;
+  width: 95%;
+  span {
+    margin-bottom: 40px;
+    color: $white;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 36px;
+  }
+}
+.next {
+  margin-left: 10px;
+}

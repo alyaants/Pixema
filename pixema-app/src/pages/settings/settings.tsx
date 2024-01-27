@@ -28,9 +28,11 @@ const Settings = () => {
     <div className={style.settingsContainer}>
       <div className={style.profile}>
         <Title title={"Profile"} />
-        <div className={classNames(style.profilInpts, {
-        [style.lightProfilInpts]: themeValue === Theme.Light,
-      })}>
+        <div
+          className={classNames(style.profilInpts, {
+            [style.lightProfilInpts]: themeValue === Theme.Light,
+          })}
+        >
           <div className={style.input}>
             <Input
               placeholder={"Name"}
@@ -52,9 +54,11 @@ const Settings = () => {
       </div>
       <div className={style.password}>
         <Title title={"Password"} />
-        <div className={classNames(style.passwordInpts, {
-        [style.lightPasswordInpts]: themeValue === Theme.Light,
-      })}>
+        <div
+          className={classNames(style.passwordInpts, {
+            [style.lightPasswordInpts]: themeValue === Theme.Light,
+          })}
+        >
           <Input
             placeholder={"Password"}
             onСhange={setPassword}
@@ -79,12 +83,14 @@ const Settings = () => {
       </div>
       <div className={style.colorMode}>
         <Title title={"Color mode"} />
-        <div className={classNames(style.colorModeInf, {
-        [style.lightColorModeInf]: themeValue === Theme.Light,
-      })}>
+        <div
+          className={classNames(style.colorModeInf, {
+            [style.lightColorModeInf]: themeValue === Theme.Light,
+          })}
+        >
           <div className={style.colorText}>
-            <span>Dark</span>
-            <p>Use dark thema</p>
+            <span>Light</span>
+            <p>Use light theme</p>
           </div>
           <div className={style.colorSwitcher}>
             <Switcher />

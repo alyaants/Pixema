@@ -5,7 +5,7 @@ interface ArrowProps {
   disabled?: boolean;
   className?: string;
 }
-export const ArrowIcon = (props: ArrowProps) => {
+export const ArrowNextIcon = (props: ArrowProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

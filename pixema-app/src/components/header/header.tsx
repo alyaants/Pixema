@@ -21,7 +21,7 @@ import { getSearchedMovies } from "../../redux/reducers/movieSlice";
 const Header = () => {
   const { themeValue } = useThemeContext();
   const navigate = useNavigate();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const isLoggedIn = useSelector(AuthSelectors.getLoggedIn);
   const userInfo = useSelector(AuthSelectors.getUserInfo);
@@ -36,12 +36,9 @@ const Header = () => {
   const handleSearchOpened = () => {
     setSearch(!isSearch);
     if (isSearch && inputValue) {
-      console.log(444);
-      dispatch(getSearchedMovies(inputValue))
-      console.log('sffe');
-      navigate(`/movies/${inputValue}`)
+      dispatch(getSearchedMovies(inputValue));
+      navigate(`/movies/${inputValue}`);
       setInputValue("");
-      console.log(558754);
     }
   };
 
@@ -58,29 +55,23 @@ const Header = () => {
       })}
     >
       <div className={style.headerContainer}>
-      {themeValue === Theme.Dark ? <Logo /> : <Logo fill={"#000"} />}
+        {themeValue === Theme.Dark ? <Logo /> : <Logo fill={"#000"} />}
         <div className={style.search}>
-      
-            <div className={style.searchWrapper}>
-              <Input
-                value={inputValue}
-                onСhange={setInputValue}
-                placeholder="Search..."
-                className={style.search}
-                onKeyDown={onKeyDown}
-              />
-              <div
-                className={classNames(style.magnifier)}
-                onClick={handleSearchOpened}
-              >
-                <SearchIcon />
-              </div>
-              <div className={classNames(style.filter)}>
-                <FilterIcon />
-              </div>
+          <div className={style.searchWrapper}>
+            <Input
+              value={inputValue}
+              onСhange={setInputValue}
+              placeholder="Search..."
+              className={style.search}
+              onKeyDown={onKeyDown}
+            />
+            <div className={style.magnifier} onClick={handleSearchOpened}>
+              <SearchIcon />
             </div>
-          
-          
+            <div className={style.filter} onClick={() => {}}>
+              <FilterIcon />
+            </div>
+          </div>
         </div>
         {isLoggedIn && userInfo ? (
           <UserName username={userInfo.username} />

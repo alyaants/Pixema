@@ -4,6 +4,7 @@ import { useDispatch, useSelector} from "react-redux";
 import { MovieSelectors, getAllMovies } from "../../redux/reducers/movieSlice";
 import {  useEffect } from "react";
 
+
 // const MOCK_ARRAY = [
 //   {
 //     id: 666,
@@ -83,8 +84,6 @@ import {  useEffect } from "react";
 //     ratingsSummary: 7.7,
 //   },
 // ];
-
-
 
 
 const AllMovies = () => {
