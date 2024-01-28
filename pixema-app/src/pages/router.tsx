@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { AuthSelectors, getUserInfo } from "../redux/reducers/authSlice";
 import { useEffect } from "react";
 import Search from "./search/search";
+import Favourites from "./favourites/favourites";
 
 export enum RoutesList {
   AllMovies = "/",
@@ -21,6 +22,7 @@ export enum RoutesList {
   ResetPassword = "/reset-password",
   NewPassword = "/new-password",
   SelectedMovie = "/movie/:id",
+  Favourites = "/favourites",
   Settings = "/settings",
   Search = "/movies/:search",
   Default = "*",
@@ -42,6 +44,7 @@ const Router = () => {
           <Route path={RoutesList.SelectedMovie} element={<SelectedMovie />} />;
           <Route path={RoutesList.Settings} element={<Settings />} />;
           <Route path={RoutesList.Search} element={<Search />} />
+          <Route path={RoutesList.Favourites} element={<Favourites />} />
         </Route>
         <Route
           path={RoutesList.RegistrationConfirmation}

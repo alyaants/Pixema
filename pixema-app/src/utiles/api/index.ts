@@ -19,8 +19,8 @@ const API = create({
   },
 });
 
-const getMovies = () => {
-  return API.get("v1.4/movie?page=1&limit=10");
+const getMovies = (year?: string[], rating?: string[]) => {
+  return API.get("v1.4/movie?page=1&limit=10", {year, rating});
 };
 
 const getSingleMovie = (id: string) => {

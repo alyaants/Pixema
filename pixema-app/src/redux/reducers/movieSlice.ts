@@ -2,12 +2,14 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 import { MovieCard, MovieCardById, movieList } from "../../@types";
 import SelectedMovie from "../../pages/allMovies/selectedMovie/selectedMovie";
+import { RootCloseEvent } from "react-bootstrap/esm/types";
 
 type InitialState = {
   movieList: movieList;
   singlMovie: MovieCardById | null;
   myMovie: movieList;
   searchedMovies: movieList,
+  savedMovie: MovieCardById[]
 };
 
 const initialState: InitialState = {
@@ -15,6 +17,7 @@ const initialState: InitialState = {
   singlMovie: null,
   myMovie: [],
   searchedMovies: [],
+  savedMovie: []
 };
 
 const MovieSlice = createSlice({
@@ -38,6 +41,18 @@ const MovieSlice = createSlice({
     setSearchedMovies: (state, action: PayloadAction<movieList>) => {
       state.searchedMovies = action.payload;
     },
+    setSavedMovie:(state, action: PayloadAction<{movie: MovieCardById}>) => {
+      const {movie} = action.payload
+      const savedIndex = state.savedMovie.findIndex(
+        (item) => item.id === movie.id
+      ); //проверяем есть ли сохраненный фильм в массиве
+      if (savedIndex === -1) {
+        //если фильма нет, то пушим в массив карточку
+        state.savedMovie.push(movie);
+      } else {
+        state.savedMovie.splice(savedIndex, 1); //либо добавили в избранное, либо убрали
+      }
+    }
   },
 });
 
@@ -50,6 +65,7 @@ export const {
   setMyMovie,
   getSearchedMovies,
   setSearchedMovies, 
+  setSavedMovie
 } = MovieSlice.actions;
 
 export const MovieSelectors = {
@@ -57,6 +73,7 @@ export const MovieSelectors = {
   getSingleMovie: (state: RootState) => state.movieReducer.singlMovie,
   getMyMovie: (state: RootState) => state.movieReducer.myMovie,
   getSearchedMovies: (state: RootState) => state.movieReducer.searchedMovies,
+  setSavedMovie:(state: RootState) => state.movieReducer.savedMovie
 };
 
 export default MovieSlice.reducer;

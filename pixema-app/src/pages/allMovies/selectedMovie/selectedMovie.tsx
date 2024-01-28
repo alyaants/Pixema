@@ -5,6 +5,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import {
   MovieSelectors,
   getSingleMovie,
+  setSavedMovie,
 } from "../../../redux/reducers/movieSlice";
 import { useEffect } from "react";
 import Button, { ButtonTypes } from "../../../components/button/button";
@@ -13,9 +14,13 @@ import FilmList from "../../../components/filmList/filmList";
 import ReactPlayer from "react-player";
 import { useThemeContext } from "../../../components/context/theme/context";
 import classNames from "classnames";
-import { Theme } from "../../../@types";
+import { MovieCardById, Theme } from "../../../@types";
 import { ImdbIcon } from "../../../components/assets/icons/imdb";
 import SimilarMoviesSlider from "../../../components/slider/slider";
+
+// type SelectedMovieProps = {
+// onSaveClick: () => void 
+// }
 
 const SelectedMovie = () => {
   const { id } = useParams();
@@ -36,6 +41,10 @@ const SelectedMovie = () => {
     }
   }, [id]);
 
+  const onFavouriteClick = (movie: MovieCardById) => () =>{
+    dispatch(setSavedMovie({movie}))
+  }
+
   return singleMovie ? (
     <div
       className={classNames(style.selectedMovieConainer, {
@@ -50,7 +59,7 @@ const SelectedMovie = () => {
           <Button
             type={ButtonTypes.Secondary}
             title={<FavoritesIcon />}
-            onClick={() => {}}
+            onClick={onFavouriteClick(singleMovie)}
             className={style.buttons}
           />
           <Button

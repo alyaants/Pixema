@@ -9,7 +9,7 @@ export enum ButtonTypes {
 interface ButtonProps {
   type: ButtonTypes;
   title: string | ReactElement;
-  onClick: () => void;
+  onClick?: () => void;
   disabled?: boolean;
   className?: string;
 }

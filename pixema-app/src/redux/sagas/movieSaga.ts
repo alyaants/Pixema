@@ -48,6 +48,10 @@ function* getSearchedMovieWorker(action: PayloadAction<string>) {
   }
 }
 
+function* getSavedMovies(){
+
+}
+
 export default function* movieSagaWatcher() {
   yield all([
     takeLatest(getAllMovies, movieWorker),

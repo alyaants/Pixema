@@ -263,3 +263,8 @@ export type SimilarMovies = {
       previewUrl?: string;
     };
 }
+
+export enum Order {
+  Raitiong = "raitiong",
+  Year = "year",
+}

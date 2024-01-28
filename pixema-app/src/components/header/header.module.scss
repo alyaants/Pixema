@@ -142,3 +142,39 @@
 .search {
   width: 100%;
 }
+
+
+
+.modal {
+  position: absolute;
+  z-index: 99;
+  background-color: $dark;
+  width: 518px;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  padding: 48px 40px;
+  align-content: center;
+  .modalHead {
+    display: flex;
+    justify-content: space-between;
+    h3 {
+      color: $white;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 36px;
+    }
+    .closeBtn {
+      width: 24px;
+      height: 24px;
+      padding: 2px;
+      border-radius: 5px;
+    }
+  }
+}
+
+.buttonsFolterContainer{
+  display: flex;
+}

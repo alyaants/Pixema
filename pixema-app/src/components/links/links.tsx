@@ -20,6 +20,10 @@ const Links = (props: LinksProps) => {
   const onHomeClick = () => {
     navigate(RoutesList.AllMovies);
   };
+
+  const onFavouriteClick = () =>{
+    navigate(RoutesList.Favourites);
+  }
   return (
     <div className={style.linksContainer}>
       <div className={style.link}>
@@ -40,7 +44,7 @@ const Links = (props: LinksProps) => {
         <div className={style.linkIcon}>
           <FavoritesIcon />
         </div>
-        <div className={style.linkText}>Favorites</div>
+        <div className={style.linkText} onClick={onFavouriteClick}>Favorites</div>
       </div>
 
       <div className={style.link}>

@@ -11,12 +11,15 @@ import { RoutesList } from "../../pages/router";
 import Button, { ButtonTypes } from "../button/button";
 import { UserIcon } from "../assets/icons/user/user";
 import classNames from "classnames";
-import { Theme } from "../../@types";
+import { Order, Theme } from "../../@types";
 import { useState } from "react";
 import { SearchIcon } from "../assets/icons/searchIcon";
 import { FilterIcon } from "../assets/icons/filter/filter";
 import Input from "../input/input";
 import { getSearchedMovies } from "../../redux/reducers/movieSlice";
+import ModalFilter from "../modalFilter/modalFilter";
+import { Modal } from "react-bootstrap";
+import { CloseIcon } from "../assets/icons/close/close";
 
 const Header = () => {
   const { themeValue } = useThemeContext();
@@ -32,6 +35,8 @@ const Header = () => {
 
   const [isSearch, setSearch] = useState(false);
   const [inputValue, setInputValue] = useState("");
+  const [isFilterOpened, setFilterOpened] = useState(false)
+  const [ordering, setOrdering] = useState("");
 
   const handleSearchOpened = () => {
     setSearch(!isSearch);
@@ -45,6 +50,27 @@ const Header = () => {
   const onKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
       handleSearchOpened();
+    }
+  };
+
+  const handleFilterOpened = () => {
+    setFilterOpened(!isFilterOpened);
+    console.log(isFilterOpened);
+  };
+
+
+  const onModalClose = () => {
+    setFilterOpened(false)
+    console.log(111222);
+    
+  }
+
+  const onSortBtnClick = (btn: Order) => () => {
+    if (btn === ordering) {
+      setOrdering("");
+      // setCurrentPage(1);
+    } else {
+      setOrdering(btn);
     }
   };
 
@@ -68,7 +94,7 @@ const Header = () => {
             <div className={style.magnifier} onClick={handleSearchOpened}>
               <SearchIcon />
             </div>
-            <div className={style.filter} onClick={() => {}}>
+            <div className={style.filter} onClick={handleFilterOpened}>
               <FilterIcon />
             </div>
           </div>
@@ -96,6 +122,34 @@ const Header = () => {
           <Outlet />
         </div>
       </div>
+      {isFilterOpened && (
+        <div>
+        <div className={style.modal}>
+        <div>
+          <div className={style.modalHead}>
+            <h3>Filter</h3>
+            <Button
+              type={ButtonTypes.Secondary}
+              title={<CloseIcon />}
+              onClick={onModalClose}
+              className={style.closeBtn}
+            />
+          </div>
+          <div className={style.filterContainer}>
+          <div>
+            <span>Sort By</span>
+            <div className={style.buttonsFolterContainer}>
+              <Button type={ButtonTypes.Primary} title={"Raiting"} onClick={onSortBtnClick(Order.Raitiong)} />
+              <Button type={ButtonTypes.Primary} title={"Year"} onClick={onSortBtnClick(Order.Year)} />
+            </div>
+          </div>
+          </div>
+          <div className={style.filter}>
+              
+          </div>
+        </div>
+      </div></div>
+      )}
     </div>
   );
 };
