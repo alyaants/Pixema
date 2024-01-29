@@ -178,3 +178,16 @@
 .buttonsFolterContainer{
   display: flex;
 }
+
+.typeContainer{
+  list-style: none;
+  text-decoration: none;
+  display: flex;
+  li{
+    color:$white;
+    &:hover{
+      cursor: pointer;
+      color: red
+    }
+  }
+}

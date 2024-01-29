@@ -3,6 +3,7 @@ import { RootState } from "../store";
 import { MovieCard, MovieCardById, movieList } from "../../@types";
 import SelectedMovie from "../../pages/allMovies/selectedMovie/selectedMovie";
 import { RootCloseEvent } from "react-bootstrap/esm/types";
+import { MoviesPayload } from "../@types";
 
 type InitialState = {
   movieList: movieList;
@@ -24,7 +25,7 @@ const MovieSlice = createSlice({
   name: "movieReducer",
   initialState,
   reducers: {
-    getAllMovies: (_, __: PayloadAction<undefined>) => {},
+    getAllMovies: (_, __: PayloadAction<MoviesPayload>) => {},
     setAllMovies: (state, action: PayloadAction<movieList>) => {
       state.movieList = action.payload;
     },

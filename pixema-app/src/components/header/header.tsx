@@ -16,7 +16,7 @@ import { useState } from "react";
 import { SearchIcon } from "../assets/icons/searchIcon";
 import { FilterIcon } from "../assets/icons/filter/filter";
 import Input from "../input/input";
-import { getSearchedMovies } from "../../redux/reducers/movieSlice";
+import { getAllMovies, getSearchedMovies } from "../../redux/reducers/movieSlice";
 import ModalFilter from "../modalFilter/modalFilter";
 import { Modal } from "react-bootstrap";
 import { CloseIcon } from "../assets/icons/close/close";
@@ -65,13 +65,27 @@ const Header = () => {
     
   }
 
-  const onSortBtnClick = (btn: Order) => () => {
-    if (btn === ordering) {
-      setOrdering("");
-      // setCurrentPage(1);
-    } else {
-      setOrdering(btn);
-    }
+  const [yearValue, setYearValue] = useState("")
+
+  const onYearFilter = () => {
+    // setYearValue(yearValue)
+    dispatch(getAllMovies({year: yearValue}));
+  }
+
+  // const onSortBtnClick = (btn: Order) => () => {
+  //   if (btn === ordering) {
+  //     setOrdering("");
+  //     // setCurrentPage(1);
+  //   } else {
+  //     setOrdering(btn);
+  //   }
+  // };
+
+  const [selectedType, setSelectedType] = useState('');
+
+  const handleTypeClick = (type:string) => {
+    setSelectedType(type);
+    dispatch(getAllMovies({type: type}))
   };
 
   return (
@@ -139,8 +153,26 @@ const Header = () => {
           <div>
             <span>Sort By</span>
             <div className={style.buttonsFolterContainer}>
-              <Button type={ButtonTypes.Primary} title={"Raiting"} onClick={onSortBtnClick(Order.Raitiong)} />
-              <Button type={ButtonTypes.Primary} title={"Year"} onClick={onSortBtnClick(Order.Year)} />
+            <Input
+              title={""}
+              placeholder={"Year"}
+              value={yearValue}
+              onСhange={setYearValue}
+              // ref={inputRef}
+            />
+              <Button type={ButtonTypes.Primary} title={"Find"} onClick={onYearFilter}/>
+            </div>
+            <div>
+              <div>
+                <ul className={style.typeContainer}>
+                  <li className={style.typeValue} onClick={() => handleTypeClick('movie')}>
+                    movie
+                  </li>
+                  <li className={style.typeValue} onClick={() => handleTypeClick('cartoon')}>
+                    cartoon
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
           </div>

@@ -9,12 +9,15 @@ import {
 import { all, takeLatest, call, put } from "redux-saga/effects";
 import { ApiResponse } from "apisauce";
 import API from "../../utiles/api";
-import { MovieData, SearchPayload, SearchResponse } from "../@types";
+import { MovieData, MoviesPayload, SearchPayload, SearchResponse } from "../@types";
 import { PayloadAction } from "@reduxjs/toolkit";
 import { MovieCardById } from "../../@types";
 
-function* movieWorker() {
-  const response: ApiResponse<MovieData> = yield call(API.getMovies);
+function* movieWorker(action: PayloadAction<MoviesPayload>) {
+  const {year, type} = action.payload
+  const response: ApiResponse<MovieData> = yield call(API.getMovies,
+    year,
+    type);
   if (response.ok && response.data) {
     yield put(setAllMovies(response.data.docs));
   } else {

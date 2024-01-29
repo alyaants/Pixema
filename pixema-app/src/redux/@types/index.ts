@@ -75,3 +75,9 @@ export type SetSearchedMoviesPayload = {
   isOverwrite: boolean;
   total_pages: number;
 };
+
+export type MoviesPayload ={
+  // movieList: movieList,
+  year?: string | string[]
+  type?: string | string[]
+}
