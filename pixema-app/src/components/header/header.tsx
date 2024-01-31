@@ -23,6 +23,7 @@ import {
   getSearchedMovies,
 } from "../../redux/reducers/movieSlice";
 import { CloseIcon } from "../assets/icons/close/close";
+import { MoviesPayload } from "../../redux/@types";
 
 const Header = () => {
   const { themeValue } = useThemeContext();
@@ -31,7 +32,7 @@ const Header = () => {
 
   const isLoggedIn = useSelector(AuthSelectors.getLoggedIn);
   const userInfo = useSelector(AuthSelectors.getUserInfo);
-  const countriesName = useSelector(MovieSelectors.getAllCountries)
+  const countriesName = useSelector(MovieSelectors.getAllCountries);
 
   const onLoginButtonClick = () => {
     navigate(RoutesList.SignIn);
@@ -71,21 +72,42 @@ const Header = () => {
     setSelectedOption(event.target.value);
   };
 
-  const onCountriesFilter = () =>{
-    dispatch(getAllMovies({"countries.name" : selectedOption}))
-  }
+  const onFilterClick = () => {
+    const requestData: MoviesPayload = {};
+
+    if (yearValue) {
+      requestData.year = yearValue;
+    }
+
+    if (rait) {
+      requestData["rating.kp"] = rait;
+    }
+
+    if (selectedOption) {
+      requestData["countries.name"] = selectedOption;
+    }
+
+    dispatch(getAllMovies(requestData));
+    // dispatch(getAllMovies({year: yearValue, 'rating.kp':rait, "countries.name": selectedOption}))
+  };
+
+  const onFilterClear = () => {
+    setYearValue("");
+    setRait("");
+    setSelectedOption("");
+  };
 
   const [yearValue, setYearValue] = useState("");
-  const [rait, setRait] = useState("")
+  const [rait, setRait] = useState("");
 
   const onYearFilter = () => {
     // setYearValue(yearValue)
     dispatch(getAllMovies({ year: yearValue }));
   };
 
-  const onRaitingClick = () =>{
-  dispatch(getAllMovies({'rating.kp':rait}))
-  }
+  const onRaitingClick = () => {
+    dispatch(getAllMovies({ "rating.kp": rait }));
+  };
 
   const [selectedType, setSelectedType] = useState("");
 
@@ -166,12 +188,6 @@ const Header = () => {
                       onСhange={setYearValue}
                       // ref={inputRef}
                     />
-                    <Button
-                      type={ButtonTypes.Primary}
-                      title={"Find"}
-                      onClick={onYearFilter}
-                      className={style.findButton}
-                    />
                   </div>
                   <div className={style.buttonsFolterContainer}>
                     <Input
@@ -180,12 +196,6 @@ const Header = () => {
                       value={rait}
                       onСhange={setRait}
                       // ref={inputRef}
-                    />
-                    <Button
-                      type={ButtonTypes.Primary}
-                      title={"Find"}
-                      onClick={onRaitingClick}
-                      className={style.findButton}
                     />
                   </div>
                   {/* <ul className={style.typeContainer}>
@@ -203,16 +213,37 @@ const Header = () => {
                     </li>
                   </ul> */}
                   <div>
-                    <Input title={"Full or short movie name"} placeholder={"Your text"} onСhange={()=>{}} />
+                    <Input
+                      title={"Full or short movie name"}
+                      placeholder={"Your text"}
+                      onСhange={() => {}}
+                    />
                   </div>
                   <div>
-                    <select className={style.select} onChange={handleOptionChange} value={selectedOption}>
-                    <option value="">Choose a country</option>
-                    {countriesName.map(name => 
-                      <option value={name.name} key={name.name}>{name.name}</option>
-                    )}
+                    <select
+                      className={style.select}
+                      onChange={handleOptionChange}
+                      value={selectedOption}
+                    >
+                      <option value="">Choose a country</option>
+                      {countriesName.map((name) => (
+                        <option value={name.name} key={name.name}>
+                          {name.name}
+                        </option>
+                      ))}
                     </select>
-                    <Button type={ButtonTypes.Primary} title={"Поиск"} onClick={onCountriesFilter}  />
+                    <div className={style.buttons}>
+                      <Button
+                        type={ButtonTypes.Primary}
+                        title={"Поиск"}
+                        onClick={onFilterClick}
+                      />
+                      <Button
+                        type={ButtonTypes.Primary}
+                        title={"Очистить"}
+                        onClick={onFilterClear}
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
