@@ -1,5 +1,12 @@
 @import "../../styles/colors.scss";
 
+.wrap {
+  // height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
 .linksContainer {
   display: flex;
   width: 230px;
@@ -46,7 +53,7 @@
   }
 }
 
-.activeLink{
+.activeLink {
   width: 123px;
   display: flex;
   justify-content: space-between;
@@ -81,4 +88,11 @@
       color: $primary;
     }
   }
+}
+
+.footer{
+  // margin-top: 770px;
+  position: absolute;
+  bottom: 100px;
+  left: 50px;
 }

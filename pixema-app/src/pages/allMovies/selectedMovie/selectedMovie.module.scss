@@ -32,9 +32,10 @@
   width: 100%;
   display: flex;
   .buttons {
-    border-radius: 1px;
     border: none;
     border-radius: 10px;
+    height: 60px;
+    width: 164px;
   }
 }
 
@@ -158,5 +159,12 @@
     .movieLength {
       color: $white;
     }
+  }
+}
+
+.activeButtons {
+  svg path{
+    fill: #9400d3;
+    border: none;
   }
 }

@@ -81,7 +81,8 @@ export type MoviesPayload = {
   year?: string | string[];
   type?: string | string[];
   "rating.kp"?: string | string[];
-  "countries.name"?: string | string[]
+  "countries.name"?: string | string[];
+  limit?: number
 };
 
 export type CountriesList = {

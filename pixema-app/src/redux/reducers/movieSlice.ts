@@ -9,9 +9,10 @@ type InitialState = {
   movieList: movieList;
   singlMovie: MovieCardById | null;
   myMovie: movieList;
-  searchedMovies: movieList,
-  savedMovie: MovieCardById[],
-  countriesList: CountriesList[]
+  searchedMovies: movieList;
+  savedMovie: MovieCardById[];
+  countriesList: CountriesList[];
+  favouritesMovie: movieList;
 };
 
 const initialState: InitialState = {
@@ -21,6 +22,7 @@ const initialState: InitialState = {
   searchedMovies: [],
   savedMovie: [],
   countriesList: [],
+  favouritesMovie: [],
 };
 
 const MovieSlice = createSlice({
@@ -44,8 +46,8 @@ const MovieSlice = createSlice({
     setSearchedMovies: (state, action: PayloadAction<movieList>) => {
       state.searchedMovies = action.payload;
     },
-    setSavedMovie:(state, action: PayloadAction<{movie: MovieCardById}>) => {
-      const {movie} = action.payload
+    setSavedMovie: (state, action: PayloadAction<{ movie: MovieCardById }>) => {
+      const { movie } = action.payload;
       const savedIndex = state.savedMovie.findIndex(
         (item) => item.id === movie.id
       ); //проверяем есть ли сохраненный фильм в массиве
@@ -56,10 +58,10 @@ const MovieSlice = createSlice({
         state.savedMovie.splice(savedIndex, 1); //либо добавили в избранное, либо убрали
       }
     },
-    getAllCountries:(state, action:PayloadAction<undefined>) =>{},
-    setAllCountries:(state, action:PayloadAction<CountriesList[]>) =>{
-     state.countriesList = action.payload
-    }
+    getAllCountries: (state, action: PayloadAction<undefined>) => {},
+    setAllCountries: (state, action: PayloadAction<CountriesList[]>) => {
+      state.countriesList = action.payload;
+    },
   },
 });
 
@@ -71,10 +73,10 @@ export const {
   getMyMovie,
   setMyMovie,
   getSearchedMovies,
-  setSearchedMovies, 
+  setSearchedMovies,
   setSavedMovie,
   getAllCountries,
-  setAllCountries
+  setAllCountries,
 } = MovieSlice.actions;
 
 export const MovieSelectors = {
@@ -82,8 +84,9 @@ export const MovieSelectors = {
   getSingleMovie: (state: RootState) => state.movieReducer.singlMovie,
   getMyMovie: (state: RootState) => state.movieReducer.myMovie,
   getSearchedMovies: (state: RootState) => state.movieReducer.searchedMovies,
-  setSavedMovie:(state: RootState) => state.movieReducer.savedMovie,
-  getAllCountries:(state:RootState) => state.movieReducer.countriesList
+  setSavedMovie: (state: RootState) => state.movieReducer.savedMovie,
+  getAllCountries: (state: RootState) => state.movieReducer.countriesList,
+  getFavouriteMovie: (state: RootState) => state.movieReducer.favouritesMovie,
 };
 
 export default MovieSlice.reducer;
