@@ -45,3 +45,40 @@
     }
   }
 }
+
+.activeLink{
+  width: 123px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  cursor: pointer;
+  height: 24px;
+  &:hover {
+    color: $primary;
+  }
+  & svg path {
+    fill: $primary;
+  }
+  //   margin-bottom: 40px;
+
+  .linkIcon {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+  }
+
+  .linkText {
+    width: 70px;
+    text-align: left;
+    color: $primary;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    &:hover {
+      color: $primary;
+    }
+  }
+}

@@ -13,6 +13,7 @@ import { AuthSelectors, getUserInfo } from "../redux/reducers/authSlice";
 import { useEffect } from "react";
 import Search from "./search/search";
 import Favourites from "./favourites/favourites";
+import { getAllCountries } from "../redux/reducers/movieSlice";
 
 export enum RoutesList {
   AllMovies = "/",
@@ -34,6 +35,7 @@ const Router = () => {
   useEffect(() => {
     if (isLoggedIn) {
       dispatch(getUserInfo());
+      dispatch(getAllCountries())
     }
   }, [isLoggedIn]);
   return (

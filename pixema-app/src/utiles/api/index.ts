@@ -1,6 +1,7 @@
 import { create } from "apisauce";
 import {
   ActivateUserData,
+  MoviesPayload,
   SignInUserData,
   SignUpUserData,
 } from "../../redux/@types";
@@ -15,12 +16,12 @@ import {
 const API = create({
   baseURL: "https://api.kinopoisk.dev/",
   headers: {
-    "X-API-KEY": "XVE8C2B-F5FMDQE-K3XE9JH-R2G27RF",
+    "X-API-KEY": "0QERFNC-X9N4F35-GVCR05K-NPH6VH0",
   },
 });
 
-const getMovies = (year?: string | string[], type?:string | string[]) => {
-  return API.get("v1.4/movie?page=1&limit=10", {year, type});
+const getMovies = (data: MoviesPayload) => {
+  return API.get("v1.4/movie?page=1&limit=10", data);
 };
 
 const getSingleMovie = (id: string) => {
@@ -67,6 +68,10 @@ const getSearch = ( query: string) => {
   return API.get(`/v1.4/movie/search`, { query, limit: 10 });
 };
 
+const getCountries = () =>{
+  return API.get('https://api.kinopoisk.dev/v1/movie/possible-values-by-field?field=countries.name')
+}
+
 export default {
   getMovies,
   getSingleMovie,
@@ -77,4 +82,5 @@ export default {
   refreshToken,
   getUserInfo,
   getSearch,
+  getCountries
 };

@@ -16,9 +16,12 @@ import { useState } from "react";
 import { SearchIcon } from "../assets/icons/searchIcon";
 import { FilterIcon } from "../assets/icons/filter/filter";
 import Input from "../input/input";
-import { getAllMovies, getSearchedMovies } from "../../redux/reducers/movieSlice";
-import ModalFilter from "../modalFilter/modalFilter";
-import { Modal } from "react-bootstrap";
+import {
+  MovieSelectors,
+  getAllCountries,
+  getAllMovies,
+  getSearchedMovies,
+} from "../../redux/reducers/movieSlice";
 import { CloseIcon } from "../assets/icons/close/close";
 
 const Header = () => {
@@ -28,6 +31,7 @@ const Header = () => {
 
   const isLoggedIn = useSelector(AuthSelectors.getLoggedIn);
   const userInfo = useSelector(AuthSelectors.getUserInfo);
+  const countriesName = useSelector(MovieSelectors.getAllCountries)
 
   const onLoginButtonClick = () => {
     navigate(RoutesList.SignIn);
@@ -35,8 +39,8 @@ const Header = () => {
 
   const [isSearch, setSearch] = useState(false);
   const [inputValue, setInputValue] = useState("");
-  const [isFilterOpened, setFilterOpened] = useState(false)
-  const [ordering, setOrdering] = useState("");
+  const [isFilterOpened, setFilterOpened] = useState(false);
+  const [selectedOption, setSelectedOption] = useState("");
 
   const handleSearchOpened = () => {
     setSearch(!isSearch);
@@ -58,34 +62,36 @@ const Header = () => {
     console.log(isFilterOpened);
   };
 
-
   const onModalClose = () => {
-    setFilterOpened(false)
+    setFilterOpened(false);
     console.log(111222);
-    
+  };
+
+  const handleOptionChange = (event: any) => {
+    setSelectedOption(event.target.value);
+  };
+
+  const onCountriesFilter = () =>{
+    dispatch(getAllMovies({"countries.name" : selectedOption}))
   }
 
-  const [yearValue, setYearValue] = useState("")
+  const [yearValue, setYearValue] = useState("");
+  const [rait, setRait] = useState("")
 
   const onYearFilter = () => {
     // setYearValue(yearValue)
-    dispatch(getAllMovies({year: yearValue}));
+    dispatch(getAllMovies({ year: yearValue }));
+  };
+
+  const onRaitingClick = () =>{
+  dispatch(getAllMovies({'rating.kp':rait}))
   }
 
-  // const onSortBtnClick = (btn: Order) => () => {
-  //   if (btn === ordering) {
-  //     setOrdering("");
-  //     // setCurrentPage(1);
-  //   } else {
-  //     setOrdering(btn);
-  //   }
-  // };
+  const [selectedType, setSelectedType] = useState("");
 
-  const [selectedType, setSelectedType] = useState('');
-
-  const handleTypeClick = (type:string) => {
+  const handleTypeClick = (type: string) => {
     setSelectedType(type);
-    dispatch(getAllMovies({type: type}))
+    dispatch(getAllMovies({ type: type }));
   };
 
   return (
@@ -138,49 +144,82 @@ const Header = () => {
       </div>
       {isFilterOpened && (
         <div>
-        <div className={style.modal}>
-        <div>
-          <div className={style.modalHead}>
-            <h3>Filter</h3>
-            <Button
-              type={ButtonTypes.Secondary}
-              title={<CloseIcon />}
-              onClick={onModalClose}
-              className={style.closeBtn}
-            />
-          </div>
-          <div className={style.filterContainer}>
-          <div>
-            <span>Sort By</span>
-            <div className={style.buttonsFolterContainer}>
-            <Input
-              title={""}
-              placeholder={"Year"}
-              value={yearValue}
-              onСhange={setYearValue}
-              // ref={inputRef}
-            />
-              <Button type={ButtonTypes.Primary} title={"Find"} onClick={onYearFilter}/>
-            </div>
+          <div className={style.modal}>
             <div>
-              <div>
-                <ul className={style.typeContainer}>
-                  <li className={style.typeValue} onClick={() => handleTypeClick('movie')}>
-                    movie
-                  </li>
-                  <li className={style.typeValue} onClick={() => handleTypeClick('cartoon')}>
-                    cartoon
-                  </li>
-                </ul>
+              <div className={style.modalHead}>
+                <h3>Filter</h3>
+                <Button
+                  type={ButtonTypes.Secondary}
+                  title={<CloseIcon />}
+                  onClick={onModalClose}
+                  className={style.closeBtn}
+                />
               </div>
+              <div className={style.filterContainer}>
+                <div>
+                  {/* <span>Sort By</span> */}
+                  <div className={style.buttonsFolterContainer}>
+                    <Input
+                      title={"Year"}
+                      placeholder={"Year"}
+                      value={yearValue}
+                      onСhange={setYearValue}
+                      // ref={inputRef}
+                    />
+                    <Button
+                      type={ButtonTypes.Primary}
+                      title={"Find"}
+                      onClick={onYearFilter}
+                      className={style.findButton}
+                    />
+                  </div>
+                  <div className={style.buttonsFolterContainer}>
+                    <Input
+                      title={"Raiting"}
+                      placeholder={"Raiting"}
+                      value={rait}
+                      onСhange={setRait}
+                      // ref={inputRef}
+                    />
+                    <Button
+                      type={ButtonTypes.Primary}
+                      title={"Find"}
+                      onClick={onRaitingClick}
+                      className={style.findButton}
+                    />
+                  </div>
+                  {/* <ul className={style.typeContainer}>
+                    <li
+                      className={style.typeValue}
+                      onClick={() => handleTypeClick("movie")}
+                    >
+                      movie
+                    </li>
+                    <li
+                      className={style.typeValue}
+                      onClick={() => handleTypeClick("cartoon")}
+                    >
+                      cartoon
+                    </li>
+                  </ul> */}
+                  <div>
+                    <Input title={"Full or short movie name"} placeholder={"Your text"} onСhange={()=>{}} />
+                  </div>
+                  <div>
+                    <select className={style.select} onChange={handleOptionChange} value={selectedOption}>
+                    <option value="">Choose a country</option>
+                    {countriesName.map(name => 
+                      <option value={name.name} key={name.name}>{name.name}</option>
+                    )}
+                    </select>
+                    <Button type={ButtonTypes.Primary} title={"Поиск"} onClick={onCountriesFilter}  />
+                  </div>
+                </div>
+              </div>
+              <div className={style.filter}></div>
             </div>
-          </div>
-          </div>
-          <div className={style.filter}>
-              
           </div>
         </div>
-      </div></div>
       )}
     </div>
   );

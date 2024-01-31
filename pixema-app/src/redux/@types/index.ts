@@ -76,8 +76,15 @@ export type SetSearchedMoviesPayload = {
   total_pages: number;
 };
 
-export type MoviesPayload ={
+export type MoviesPayload = {
   // movieList: movieList,
-  year?: string | string[]
-  type?: string | string[]
-}
+  year?: string | string[];
+  type?: string | string[];
+  "rating.kp"?: string | string[];
+  "countries.name"?: string | string[]
+};
+
+export type CountriesList = {
+  name: string;
+  slug: string;
+};

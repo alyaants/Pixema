@@ -177,6 +177,8 @@
 
 .buttonsFolterContainer{
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .typeContainer{
@@ -191,3 +193,34 @@
     }
   }
 }
+
+.findButton{
+width: 100px;
+height: 50px;
+}
+
+.select{
+  width: 100%;
+    padding: 20px 18px;
+    background-color: $graphite;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    outline: 0;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    color: $secondary;
+    margin-bottom: 24px;
+    &:hover,
+    &:focus {
+      border-color: $primary;
+      color: $white;
+    }
+    &:active {
+      border: 2px solid transparent;
+    }
+    &::placeholder {
+      color: $secondary;
+    }
+  }
