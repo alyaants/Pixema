@@ -6,12 +6,13 @@ import EmptyState from "../../components/emptyState/emptyState";
 
 const Favourites = () => {
   const favouritesMovies = useSelector(MovieSelectors.setSavedMovie);
+  const isListLoading = useSelector(MovieSelectors.getMoviesLoading);
 
   return (
     <div>
       {favouritesMovies.length ? (
         <div className={style.container}>
-          {<FilmList filmList={favouritesMovies} />}
+          {<FilmList filmList={favouritesMovies}  isLoading={isListLoading} />}
         </div>
       ) : (
         <EmptyState

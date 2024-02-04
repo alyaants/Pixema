@@ -5,7 +5,6 @@ import {
   SignInUserData,
   SignUpUserData,
 } from "../../redux/@types";
-import { LIMIT } from "../constants";
 
 // https://api.kinopoisk.dev/v1.4/movie?page=1&limit=10
 
@@ -19,7 +18,7 @@ import { LIMIT } from "../constants";
 const API = create({
   baseURL: "https://api.kinopoisk.dev/",
   headers: {
-    "X-API-KEY": "5RW6GRA-XW04AEZ-GDSDKD6-VPJ0SS4",
+    "X-API-KEY": "0QERFNC-X9N4F35-GVCR05K-NPH6VH0",
   },
 });
 
@@ -67,12 +66,20 @@ const getUserInfo = (token: string) => {
   );
 };
 
-const getSearch = ( query: string) => {
+const getSearch = (query: string) => {
   return API.get(`/v1.4/movie/search`, { query, limit: 10 });
 };
 
-const getCountries = () =>{
-  return API.get('https://api.kinopoisk.dev/v1/movie/possible-values-by-field?field=countries.name')
+const getCountries = () => {
+  return API.get(
+    "https://api.kinopoisk.dev/v1/movie/possible-values-by-field?field=countries.name"
+  );
+};
+
+const getTrends = () => {
+  return API.get(
+    "v1.4/movie?page=19&limit=10&rating.kp=8-9"
+  )
 }
 
 export default {
@@ -85,5 +92,6 @@ export default {
   refreshToken,
   getUserInfo,
   getSearch,
-  getCountries
+  getCountries,
+  getTrends
 };

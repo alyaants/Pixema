@@ -1,10 +1,11 @@
 @import "../../styles/colors.scss";
 
 .settingsContainer {
-  width: 1186px;
+  max-width: 1186px;
   display: flex;
   flex-direction: column;
   flex: 1;
+  margin-left: 20px;
 }
 .profilInpts {
   background-color: $dark;

@@ -268,3 +268,7 @@ export enum Order {
   Raitiong = "raitiong",
   Year = "year",
 }
+
+export type TrendMovies = {
+  
+}

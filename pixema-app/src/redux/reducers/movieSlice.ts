@@ -1,8 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 import { MovieCard, MovieCardById, movieList } from "../../@types";
-import SelectedMovie from "../../pages/allMovies/selectedMovie/selectedMovie";
-import { RootCloseEvent } from "react-bootstrap/esm/types";
 import { CountriesList, MoviesPayload } from "../@types";
 
 type InitialState = {
@@ -13,6 +11,8 @@ type InitialState = {
   savedMovie: MovieCardById[];
   countriesList: CountriesList[];
   favouritesMovie: movieList;
+  isMoviesListLoading: boolean;
+  trendMovies: movieList;
 };
 
 const initialState: InitialState = {
@@ -23,6 +23,8 @@ const initialState: InitialState = {
   savedMovie: [],
   countriesList: [],
   favouritesMovie: [],
+  isMoviesListLoading: false,
+  trendMovies: [],
 };
 
 const MovieSlice = createSlice({
@@ -58,9 +60,18 @@ const MovieSlice = createSlice({
         state.savedMovie.splice(savedIndex, 1); //либо добавили в избранное, либо убрали
       }
     },
-    getAllCountries: (state, action: PayloadAction<undefined>) => {},
+    getAllCountries: (_, __: PayloadAction<undefined>) => {},
     setAllCountries: (state, action: PayloadAction<CountriesList[]>) => {
       state.countriesList = action.payload;
+    },
+
+    setMoviesLoading: (state, action: PayloadAction<boolean>) => {
+      state.isMoviesListLoading = action.payload;
+    },
+
+    getTrendsMovies: (_, __: PayloadAction<undefined>) => {},
+    setTrendsMovies: (state, action: PayloadAction<movieList>) => {
+      state.trendMovies = action.payload
     },
   },
 });
@@ -77,6 +88,9 @@ export const {
   setSavedMovie,
   getAllCountries,
   setAllCountries,
+  setMoviesLoading,
+  getTrendsMovies,
+  setTrendsMovies
 } = MovieSlice.actions;
 
 export const MovieSelectors = {
@@ -87,6 +101,9 @@ export const MovieSelectors = {
   setSavedMovie: (state: RootState) => state.movieReducer.savedMovie,
   getAllCountries: (state: RootState) => state.movieReducer.countriesList,
   getFavouriteMovie: (state: RootState) => state.movieReducer.favouritesMovie,
+  getMoviesLoading: (state: RootState) =>
+    state.movieReducer.isMoviesListLoading,
+  getTrendsMovies: (state: RootState) => state.movieReducer.trendMovies
 };
 
 export default MovieSlice.reducer;

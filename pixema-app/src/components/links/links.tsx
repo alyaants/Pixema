@@ -34,7 +34,7 @@ const Links = (props: LinksProps) => {
   };
 
   const onTrendsClick = () => {
-    navigate(RoutesList.AllMovies);
+    navigate(RoutesList.Trends);
     setActiveLink("trends");
   };
 

@@ -14,6 +14,7 @@ import { useEffect } from "react";
 import Search from "./search/search";
 import Favourites from "./favourites/favourites";
 import { getAllCountries } from "../redux/reducers/movieSlice";
+import Trends from "./trends/trends";
 
 export enum RoutesList {
   AllMovies = "/",
@@ -24,6 +25,7 @@ export enum RoutesList {
   NewPassword = "/new-password",
   SelectedMovie = "/movie/:id",
   Favourites = "/favourites",
+  Trends = "/trends",
   Settings = "/settings",
   Search = "/movies/:search",
   Default = "*",
@@ -35,18 +37,19 @@ const Router = () => {
   useEffect(() => {
     if (isLoggedIn) {
       dispatch(getUserInfo());
-      dispatch(getAllCountries())
+      dispatch(getAllCountries());
     }
   }, [isLoggedIn]);
   return (
     <BrowserRouter>
       <Routes>
         <Route path={RoutesList.AllMovies} element={<Header />}>
-          <Route path={RoutesList.AllMovies} element={<AllMovies />} />;
-          <Route path={RoutesList.SelectedMovie} element={<SelectedMovie />} />;
-          <Route path={RoutesList.Settings} element={<Settings />} />;
+          <Route path={RoutesList.AllMovies} element={<AllMovies />} />
+          <Route path={RoutesList.SelectedMovie} element={<SelectedMovie />} />
+          <Route path={RoutesList.Settings} element={<Settings />} />
           <Route path={RoutesList.Search} element={<Search />} />
           <Route path={RoutesList.Favourites} element={<Favourites />} />
+          <Route path={RoutesList.Trends} element={<Trends />} />
         </Route>
         <Route
           path={RoutesList.RegistrationConfirmation}
@@ -62,7 +65,6 @@ const Router = () => {
         <Route path={RoutesList.SignIn} element={<SignIn />} />;
         <Route path={RoutesList.ResetPassword} element={<ResetPassword />} />;
         <Route path={RoutesList.NewPassword} element={<NewPassword />} />;
-        
       </Routes>
     </BrowserRouter>
   );

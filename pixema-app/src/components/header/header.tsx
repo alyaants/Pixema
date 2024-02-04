@@ -1,8 +1,7 @@
-import { KeyboardEvent } from "react";
+import { KeyboardEvent, useEffect } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import Links from "../links/links";
 import UserName from "../userName/userName";
-import style from "./header.module.scss";
 import { Logo } from "../assets/icons/logo/logo";
 import { useDispatch, useSelector } from "react-redux";
 import { AuthSelectors } from "../../redux/reducers/authSlice";
@@ -24,6 +23,9 @@ import {
 } from "../../redux/reducers/movieSlice";
 import { CloseIcon } from "../assets/icons/close/close";
 import { MoviesPayload } from "../../redux/@types";
+import Title from "../title/title";
+
+import style from "./header.module.scss";
 
 const Header = () => {
   const { themeValue } = useThemeContext();
@@ -61,7 +63,23 @@ const Header = () => {
   const handleFilterOpened = () => {
     setFilterOpened(!isFilterOpened);
     console.log(isFilterOpened);
+
+    // Включаем/выключаем стиль overflow у body для предотвращения прокрутки
+    // const body = document.querySelector('body');
+    // if (body) {
+    //   body.style.overflow = isFilterOpened ? 'auto' : 'hidden';
+    // }
   };
+
+  // useEffect(() => {
+  //   // Функция для сброса стиля overflow у body при размонтировании компонента
+  //   return () => {
+  //     const body = document.querySelector('body');
+  //     if (body) {
+  //       body.style.overflow = 'auto';
+  //     }
+  //   };
+  // }, []);
 
   const onModalClose = () => {
     setFilterOpened(false);
@@ -180,7 +198,7 @@ const Header = () => {
               <div className={style.filterContainer}>
                 <div>
                   {/* <span>Sort By</span> */}
-                  <div className={style.buttonsFolterContainer}>
+                  <div className={style.buttonsFilterContainer}>
                     <Input
                       title={"Year"}
                       placeholder={"Year"}
@@ -189,7 +207,7 @@ const Header = () => {
                       // ref={inputRef}
                     />
                   </div>
-                  <div className={style.buttonsFolterContainer}>
+                  <div className={style.buttonsFilterContainer}>
                     <Input
                       title={"Raiting"}
                       placeholder={"Raiting"}
@@ -220,6 +238,7 @@ const Header = () => {
                     />
                   </div>
                   <div>
+                    <Title title={"Country"} className={style.titleSelect} />
                     <select
                       className={style.select}
                       onChange={handleOptionChange}
@@ -232,22 +251,25 @@ const Header = () => {
                         </option>
                       ))}
                     </select>
-                    <div className={style.buttons}>
+
+                  </div>
+                  <div className={style.buttons}>
                       <Button
                         type={ButtonTypes.Primary}
                         title={"Поиск"}
                         onClick={onFilterClick}
+                        className={style.searchBtn}
                       />
                       <Button
-                        type={ButtonTypes.Primary}
+                        type={ButtonTypes.Secondary}
                         title={"Очистить"}
                         onClick={onFilterClear}
+                        className={style.clearBtn}
                       />
                     </div>
-                  </div>
                 </div>
               </div>
-              <div className={style.filter}></div>
+              {/* <div className={style.filter}></div> */}
             </div>
           </div>
         </div>

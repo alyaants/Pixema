@@ -5,8 +5,13 @@ import { MovieSelectors, getAllMovies } from "../../redux/reducers/movieSlice";
 import Button, { ButtonTypes } from "../../components/button/button";
 import { LIMIT } from "../../utiles/constants";
 import styles from "./allMovies.module.scss";
+import Loader from "../../components/loader/loader";
 
-const AllMovies = () => {
+interface AllMoviesProps {
+  isLoading?: boolean;
+}
+
+const AllMovies = (props: AllMoviesProps) => {
   const movieList = useSelector(MovieSelectors.getAllMovies);
   const dispatch = useDispatch();
   const [limit, setLimit] = useState(10); // используем useState для отслеживания значения limit
@@ -24,17 +29,17 @@ const AllMovies = () => {
   let years = "2000-2004";
   console.log(movieList);
 
-  return (
+  return  (
     <div>
-      <FilmList filmList={movieList} />
-        <Button
-          type={ButtonTypes.Primary}
-          title={"Show More"}
-          onClick={onMoreClick}
-          className={styles.btn}
-        />
+      <FilmList filmList={movieList} isLoading={false} />
+      <Button
+        type={ButtonTypes.Primary}
+        title={"Show More"}
+        onClick={onMoreClick}
+        className={styles.btn}
+      />
     </div>
-  );
+  ) 
 };
 
 export default AllMovies;
