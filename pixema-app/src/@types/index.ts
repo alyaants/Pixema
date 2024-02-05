@@ -13,8 +13,6 @@ export interface Post {
   ratingsSummary?: number;
   id?: number;
   title?: string;
-
-  // genres?: GenresData[];
 }
 
 export type PostsList = Post[];
@@ -77,153 +75,152 @@ export type MovieCard = {
   totalSeriesLength?: number;
 };
 
-
 export type MovieCardById = {
-    fees?: {
-      world?: {
-        value?: number;
-        currency?: string;
-      };
-      usa: {
-        value?: number;
-        currency?: string;
-      };
-    };
-    status?: any;
-    externalId?: {
-      tmdb?: number;
-      imdb?: string;
-    };
-    rating?: {
-      kp?: number;
-      imdb?: number;
-      filmCritics?: number;
-      russianFilmCritics?: number;
-      await?: any;
-    };
-    votes?: {
-      kp?: number;
-      imdb?: number;
-      filmCritics?: number;
-      russianFilmCritics?: number;
-      await?: number;
-    };
-    backdrop?: {
-      url?: string;
-      previewUrl?: string;
-    };
-    movieLength?: number;
-    images?: {
-      framesCount?: number;
-    };
-    productionCompanies?: {
-      name?: string;
-      url?: string;
-      previewUrl?: string;
-    }[];
-    spokenLanguages?: {
-      name?: string;
-      nameEn?: string;
-    }[];
-    id?: number;
-    type?: string;
-    name?: string;
-    description?: string;
-    distributors?: {
-      distributor?: any;
-      distributorRelease?: string;
-    };
-    premiere?: {
-      world?: string;
-      dvd?: string;
-    };
-    slogan?: string;
-    year?: number;
-    budget?: {
+  fees?: {
+    world?: {
       value?: number;
       currency?: string;
     };
+    usa: {
+      value?: number;
+      currency?: string;
+    };
+  };
+  status?: any;
+  externalId?: {
+    tmdb?: number;
+    imdb?: string;
+  };
+  rating?: {
+    kp?: number;
+    imdb?: number;
+    filmCritics?: number;
+    russianFilmCritics?: number;
+    await?: any;
+  };
+  votes?: {
+    kp?: number;
+    imdb?: number;
+    filmCritics?: number;
+    russianFilmCritics?: number;
+    await?: number;
+  };
+  backdrop?: {
+    url?: string;
+    previewUrl?: string;
+  };
+  movieLength?: number;
+  images?: {
+    framesCount?: number;
+  };
+  productionCompanies?: {
+    name?: string;
+    url?: string;
+    previewUrl?: string;
+  }[];
+  spokenLanguages?: {
+    name?: string;
+    nameEn?: string;
+  }[];
+  id?: number;
+  type?: string;
+  name?: string;
+  description?: string;
+  distributors?: {
+    distributor?: any;
+    distributorRelease?: string;
+  };
+  premiere?: {
+    world?: string;
+    dvd?: string;
+  };
+  slogan?: string;
+  year?: number;
+  budget?: {
+    value?: number;
+    currency?: string;
+  };
+  poster?: {
+    url?: string;
+    previewUrl?: string;
+  };
+  facts?: {
+    value?: string;
+    type?: string;
+    spoiler?: boolean;
+  }[];
+  genres?: {
+    name?: string;
+  }[];
+  countries?: {
+    name?: string;
+  }[];
+  seasonsInfo?: any[];
+  persons?: {
+    id?: number;
+    photo?: string;
+    name?: string;
+    enName?: string;
+    description?: string;
+    profession?: string;
+    enProfession?: string;
+  }[];
+  typeNumber?: number;
+  alternativeName?: string;
+  enName?: string;
+  names?: {
+    name?: string;
+    language?: string;
+    type?: string;
+  }[];
+  ageRating?: number;
+  ratingMpaa?: string;
+  updateDates?: any[];
+  sequelsAndPrequels?: {
+    id?: number;
+    name?: string;
+    enName?: string;
+    alternativeName?: string;
+    type?: string;
     poster?: {
       url?: string;
       previewUrl?: string;
     };
-    facts?: {
-      value?: string;
-      type?: string;
-      spoiler?: boolean;
+  }[];
+  updatedAt?: string;
+  similarMovies: SimilarMovies[];
+  shortDescription?: string;
+  technology?: {
+    hasImax?: boolean;
+    has3D?: boolean;
+  };
+  ticketsOnSale?: boolean;
+  imagesInfo?: {
+    framesCount?: number;
+  };
+  logo?: {
+    url?: string;
+  };
+  watchability?: {
+    items?: any[];
+  };
+  top10?: any;
+  top250?: any;
+  deletedAt?: any;
+  audience?: {
+    count?: number;
+    country?: string;
+  }[];
+  isSeries: boolean;
+  seriesLength?: any;
+  totalSeriesLength?: any;
+  networks?: any;
+  videos?: {
+    trailers: {
+      url: string;
     }[];
-    genres?: {
-      name?: string;
-    }[];
-    countries?: {
-      name?: string;
-    }[];
-    seasonsInfo?: any[];
-    persons?: {
-      id?: number;
-      photo?: string;
-      name?: string;
-      enName?: string;
-      description?: string;
-      profession?: string;
-      enProfession?: string;
-    }[];
-    typeNumber?: number;
-    alternativeName?:string;
-    enName?: string;
-    names?:{
-      name?: string;
-      language?: string;
-      type?: string;
-    }[];
-    ageRating?: number;
-    ratingMpaa?: string;
-    updateDates?: any[];
-    sequelsAndPrequels?: {
-      id?: number;
-      name?: string;
-      enName?: string;
-      alternativeName?: string;
-      type?: string;
-      poster?: {
-        url?: string;
-        previewUrl?: string;
-      };
-    }[];
-    updatedAt?: string;
-    similarMovies: SimilarMovies[];
-    shortDescription?: string;
-    technology?: {
-      hasImax?: boolean;
-      has3D?: boolean;
-    };
-    ticketsOnSale?: boolean;
-    imagesInfo?: {
-      framesCount?: number;
-    };
-    logo?: {
-      url?: string;
-    };
-    watchability?: {
-      items?: any[];
-    };
-    top10?: any;
-    top250?: any;
-    deletedAt?: any;
-    audience?: {
-      count?: number;
-      country?: string;
-    }[];
-    isSeries: boolean;
-    seriesLength?: any;
-    totalSeriesLength?: any;
-    networks?: any;
-    videos?: {
-      trailers: {
-        url: string;
-      }[];
-    };
-  }
+  };
+};
 
 export type movieList = MovieCard[];
 
@@ -251,24 +248,21 @@ export type TabsListProps = {
   onClick: (tab: TabsType) => () => void;
 };
 
-
 export type SimilarMovies = {
-    id?: number;
-    name?: string;
-    enName?: string;
-    alternativeName?: string;
-    type?: string;
-    poster?: {
-      url?: string;
-      previewUrl?: string;
-    };
-}
+  id?: number;
+  name?: string;
+  enName?: string;
+  alternativeName?: string;
+  type?: string;
+  poster?: {
+    url?: string;
+    previewUrl?: string;
+  };
+};
 
 export enum Order {
   Raitiong = "raitiong",
   Year = "year",
 }
 
-export type TrendMovies = {
-  
-}
+export type TrendMovies = {};

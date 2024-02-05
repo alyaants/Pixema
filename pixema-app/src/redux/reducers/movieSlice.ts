@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../store";
-import { MovieCard, MovieCardById, movieList } from "../../@types";
+import { MovieCardById, movieList } from "../../@types";
 import { CountriesList, MoviesPayload } from "../@types";
 
 type InitialState = {
@@ -71,7 +71,7 @@ const MovieSlice = createSlice({
 
     getTrendsMovies: (_, __: PayloadAction<undefined>) => {},
     setTrendsMovies: (state, action: PayloadAction<movieList>) => {
-      state.trendMovies = action.payload
+      state.trendMovies = action.payload;
     },
   },
 });
@@ -90,7 +90,7 @@ export const {
   setAllCountries,
   setMoviesLoading,
   getTrendsMovies,
-  setTrendsMovies
+  setTrendsMovies,
 } = MovieSlice.actions;
 
 export const MovieSelectors = {
@@ -103,7 +103,7 @@ export const MovieSelectors = {
   getFavouriteMovie: (state: RootState) => state.movieReducer.favouritesMovie,
   getMoviesLoading: (state: RootState) =>
     state.movieReducer.isMoviesListLoading,
-  getTrendsMovies: (state: RootState) => state.movieReducer.trendMovies
+  getTrendsMovies: (state: RootState) => state.movieReducer.trendMovies,
 };
 
 export default MovieSlice.reducer;

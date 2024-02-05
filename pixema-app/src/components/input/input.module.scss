@@ -41,7 +41,6 @@
   font-style: normal;
   font-weight: 600;
   line-height: 24px;
-  // margin-bottom: 8px;
 }
 .errorText {
   color: $error;
@@ -55,11 +54,11 @@
   border-color: $error;
 }
 
-.lightContainer{
-  .title{
+.lightContainer {
+  .title {
     color: $black;
   }
-  .input{
+  .input {
     background-color: $white;
     color: $black;
     border: 2px solid $secondary;
@@ -70,5 +69,3 @@
     }
   }
 }
-
-

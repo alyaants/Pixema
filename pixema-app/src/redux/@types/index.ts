@@ -77,7 +77,6 @@ export type SetSearchedMoviesPayload = {
 };
 
 export type MoviesPayload = {
-  // movieList: movieList,
   year?: string | string[];
   type?: string | string[];
   "rating.kp"?: string | string[];

@@ -1,5 +1,4 @@
 import { FC, useState } from "react";
-
 import styles from "./userName.module.scss";
 import { useNavigate } from "react-router-dom";
 import { useThemeContext } from "../context/theme/context";
@@ -47,25 +46,6 @@ const Username: FC<UsernameProps> = ({ username }) => {
         dispatch(logoutUser());
         navigate(RoutesList.SignIn);
       },
-      // {
-      //   const users: UserListType[] = JSON.parse(
-      //     localStorage.getItem(USERS_DATA) || "",
-      //   );
-      //   const activeUser: UserListType = JSON.parse(
-      //     localStorage.getItem(ACTIVE_USER_DATA) || "",
-      //   );
-
-      //   users.forEach((user) => {
-      //     if (activeUser.username === user.username) {
-      //       user.isLoggedIn = false;
-      //       localStorage.setItem(USERS_DATA, JSON.stringify(users));
-      //     }
-      //   });
-
-      //   if (users) localStorage.removeItem(ACTIVE_USER_DATA);
-      //   navigate(RoutesList.SignIn);
-      //   document.location.reload();
-      // },
     },
   ];
 

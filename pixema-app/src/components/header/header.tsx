@@ -1,4 +1,4 @@
-import { KeyboardEvent, useEffect } from "react";
+import { KeyboardEvent } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import Links from "../links/links";
 import UserName from "../userName/userName";
@@ -10,21 +10,19 @@ import { RoutesList } from "../../pages/router";
 import Button, { ButtonTypes } from "../button/button";
 import { UserIcon } from "../assets/icons/user/user";
 import classNames from "classnames";
-import { Order, Theme } from "../../@types";
+import { Theme } from "../../@types";
 import { useState } from "react";
 import { SearchIcon } from "../assets/icons/searchIcon";
 import { FilterIcon } from "../assets/icons/filter/filter";
 import Input from "../input/input";
 import {
   MovieSelectors,
-  getAllCountries,
   getAllMovies,
   getSearchedMovies,
 } from "../../redux/reducers/movieSlice";
 import { CloseIcon } from "../assets/icons/close/close";
 import { MoviesPayload } from "../../redux/@types";
 import Title from "../title/title";
-
 import style from "./header.module.scss";
 
 const Header = () => {
@@ -62,28 +60,10 @@ const Header = () => {
 
   const handleFilterOpened = () => {
     setFilterOpened(!isFilterOpened);
-    console.log(isFilterOpened);
-
-    // Включаем/выключаем стиль overflow у body для предотвращения прокрутки
-    // const body = document.querySelector('body');
-    // if (body) {
-    //   body.style.overflow = isFilterOpened ? 'auto' : 'hidden';
-    // }
   };
-
-  // useEffect(() => {
-  //   // Функция для сброса стиля overflow у body при размонтировании компонента
-  //   return () => {
-  //     const body = document.querySelector('body');
-  //     if (body) {
-  //       body.style.overflow = 'auto';
-  //     }
-  //   };
-  // }, []);
 
   const onModalClose = () => {
     setFilterOpened(false);
-    console.log(111222);
   };
 
   const handleOptionChange = (event: any) => {
@@ -119,7 +99,6 @@ const Header = () => {
   const [rait, setRait] = useState("");
 
   const onYearFilter = () => {
-    // setYearValue(yearValue)
     dispatch(getAllMovies({ year: yearValue }));
   };
 
@@ -197,14 +176,12 @@ const Header = () => {
               </div>
               <div className={style.filterContainer}>
                 <div>
-                  {/* <span>Sort By</span> */}
                   <div className={style.buttonsFilterContainer}>
                     <Input
                       title={"Year"}
                       placeholder={"Year"}
                       value={yearValue}
                       onСhange={setYearValue}
-                      // ref={inputRef}
                     />
                   </div>
                   <div className={style.buttonsFilterContainer}>
@@ -213,23 +190,8 @@ const Header = () => {
                       placeholder={"Raiting"}
                       value={rait}
                       onСhange={setRait}
-                      // ref={inputRef}
                     />
                   </div>
-                  {/* <ul className={style.typeContainer}>
-                    <li
-                      className={style.typeValue}
-                      onClick={() => handleTypeClick("movie")}
-                    >
-                      movie
-                    </li>
-                    <li
-                      className={style.typeValue}
-                      onClick={() => handleTypeClick("cartoon")}
-                    >
-                      cartoon
-                    </li>
-                  </ul> */}
                   <div>
                     <Input
                       title={"Full or short movie name"}
@@ -251,25 +213,23 @@ const Header = () => {
                         </option>
                       ))}
                     </select>
-
                   </div>
                   <div className={style.buttons}>
-                      <Button
-                        type={ButtonTypes.Primary}
-                        title={"Поиск"}
-                        onClick={onFilterClick}
-                        className={style.searchBtn}
-                      />
-                      <Button
-                        type={ButtonTypes.Secondary}
-                        title={"Очистить"}
-                        onClick={onFilterClear}
-                        className={style.clearBtn}
-                      />
-                    </div>
+                    <Button
+                      type={ButtonTypes.Primary}
+                      title={"Поиск"}
+                      onClick={onFilterClick}
+                      className={style.searchBtn}
+                    />
+                    <Button
+                      type={ButtonTypes.Secondary}
+                      title={"Очистить"}
+                      onClick={onFilterClear}
+                      className={style.clearBtn}
+                    />
+                  </div>
                 </div>
               </div>
-              {/* <div className={style.filter}></div> */}
             </div>
           </div>
         </div>

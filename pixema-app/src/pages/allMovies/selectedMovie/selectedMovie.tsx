@@ -18,10 +18,6 @@ import { ImdbIcon } from "../../../components/assets/icons/imdb";
 import SimilarMoviesSlider from "../../../components/slider/slider";
 import style from "./selectedMovie.module.scss";
 
-// type SelectedMovieProps = {
-// onSaveClick: () => void
-// }
-
 const SelectedMovie = () => {
   const { id } = useParams();
 
@@ -35,7 +31,6 @@ const SelectedMovie = () => {
 
   const [activeFav, setActiveFav] = useState(false);
 
-
   // const similarMovies = singleMovie?.similarMovies
 
   useEffect(() => {
@@ -46,7 +41,7 @@ const SelectedMovie = () => {
 
   const onFavouriteClick = (movie: MovieCardById) => () => {
     dispatch(setSavedMovie({ movie }));
-    setActiveFav(!activeFav)
+    setActiveFav(!activeFav);
   };
 
   return singleMovie ? (
@@ -60,12 +55,12 @@ const SelectedMovie = () => {
           <img src={singleMovie.poster?.url} alt="#" />
         </div>
         <div className={style.tabsList}>
-            <Button
-              type={ButtonTypes.Secondary}
-              title={<FavoritesIcon />}
-              onClick={onFavouriteClick(singleMovie)}
-              className={activeFav ? style.activeButtons : style.buttons}
-            />
+          <Button
+            type={ButtonTypes.Secondary}
+            title={<FavoritesIcon />}
+            onClick={onFavouriteClick(singleMovie)}
+            className={activeFav ? style.activeButtons : style.buttons}
+          />
           <Button
             type={ButtonTypes.Secondary}
             title={<ShareIcon />}

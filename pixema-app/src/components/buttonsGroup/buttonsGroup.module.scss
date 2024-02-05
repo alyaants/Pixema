@@ -1,35 +1,28 @@
 .buttonsGroupContainer {
+  display: flex;
+  height: 56px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-sizing: border-box;
+
+  .icon {
+    background-color: #323537;
+    width: 133px;
     display: flex;
-    // width: 266px;
-    height: 56px;
-    border-radius: 10px;
-    overflow: hidden;
-    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    color: white;
 
-    .icon {
-        background-color: #323537;
-        width: 133px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: white;
-
-        &:first-child {
-            border-right: 1px solid black;
-        }
-
-        &:hover{
-            svg{
-                fill: white;
-                stroke: white;
-            }
-            cursor: pointer;
-            
-        }
+    &:first-child {
+      border-right: 1px solid black;
     }
-// .disabled{
-//         background-color: #AFB2B6;
-//     }
-    
-} 
 
+    &:hover {
+      svg {
+        fill: white;
+        stroke: white;
+      }
+      cursor: pointer;
+    }
+  }
+}

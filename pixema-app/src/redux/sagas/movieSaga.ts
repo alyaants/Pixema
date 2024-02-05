@@ -13,15 +13,9 @@ import {
 import { all, takeLatest, call, put } from "redux-saga/effects";
 import { ApiResponse } from "apisauce";
 import API from "../../utiles/api";
-import {
-  CountriesList,
-  MovieData,
-  MoviesPayload,
-  SearchPayload,
-  SearchResponse,
-} from "../@types";
+import { CountriesList, MovieData, MoviesPayload } from "../@types";
 import { PayloadAction } from "@reduxjs/toolkit";
-import { MovieCardById, movieList } from "../../@types";
+import { MovieCardById } from "../../@types";
 
 function* movieWorker(action: PayloadAction<MoviesPayload>) {
   const data = action.payload;
@@ -86,6 +80,5 @@ export default function* movieSagaWatcher() {
     takeLatest(getSearchedMovies, getSearchedMovieWorker),
     takeLatest(getAllCountries, getAllCountriesWorker),
     takeLatest(getTrendsMovies, getTrendsMoviesWorker),
-
   ]);
 }

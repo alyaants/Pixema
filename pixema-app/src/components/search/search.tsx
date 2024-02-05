@@ -1,12 +1,10 @@
-import { KeyboardEvent, useState } from "react";
-import classNames from "classnames";
+import { useState } from "react";
 import styles from "./search.module.scss";
 import { useNavigate } from "react-router-dom";
 import Input from "../input/input";
 import { SearchIcon } from "../assets/icons/searchIcon";
 import { FilterIcon } from "../assets/icons/filter/filter";
 import { useDispatch } from "react-redux";
-import { getSearchedMovies, setSearchedMovies } from "../../redux/reducers/movieSlice";
 
 interface SearchProps {
   disabled?: boolean;
@@ -14,26 +12,14 @@ interface SearchProps {
 
 const Search = (props: SearchProps) => {
   const navigate = useNavigate();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const [isSearch, setSearch] = useState(false);
   const [inputValue, setInputValue] = useState("");
 
   const handleSearchOpened = () => {
     setSearch(!isSearch);
-    // if (isSearch && inputValue) {
-    //   dispatch(getSearchedMovies(inputValue))
-    //   navigate(`movies/${inputValue}`);
-    //   setInputValue("");
-    // }
-  }
-  // };
-
-  // const onKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
-  //   if (event.key === "Enter") {
-  //     handleSearchOpened();
-  //   }
-  // };
+  };
 
   return (
     <div>
@@ -44,26 +30,11 @@ const Search = (props: SearchProps) => {
             onСhange={setInputValue}
             placeholder="Search"
             className={styles.search}
-            // onKeyDown={onKeyDown}
           />
-          <div
-            className={classNames(
-              styles.magnifier
-              //   {
-              //   [styles.filterLight]: isLight,
-              // }
-            )}
-            onClick={handleSearchOpened}
-          >
+          <div className={styles.magnifier} onClick={handleSearchOpened}>
             <SearchIcon />
           </div>
-          <div
-            className={classNames(styles.filter, {
-              // [styles.disabledFilter]: props.disabled,
-              // [styles.filterLight]: props.isLight,
-            })}
-            // onClick={props.disabled ? () => {} : props.onFilterClick}
-          >
+          <div className={styles.filter}>
             <FilterIcon />
           </div>
         </div>

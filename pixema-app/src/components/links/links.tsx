@@ -30,7 +30,6 @@ const Links = (props: LinksProps) => {
   const onFavouriteClick = () => {
     navigate(RoutesList.Favourites);
     setActiveLink("favorites");
-    // setActiveLink(!activeLink);
   };
 
   const onTrendsClick = () => {
@@ -90,7 +89,6 @@ const Links = (props: LinksProps) => {
         </div>
       </div>
       <footer className={style.footer}>© All Rights Reserved</footer>
-
     </div>
   );
 };

@@ -3,7 +3,6 @@
 .headerContainerMain {
   position: relative;
   background-color: $black;
-  // height: 100vh;
   padding: 40px 62px 0;
   display: flex;
   justify-content: space-between;
@@ -26,7 +25,6 @@
 .content {
   flex: 1;
   margin: 56px 0 20px;
-  // height: calc(100vh-);
   display: flex;
 
   .links {
@@ -74,7 +72,6 @@
   width: 24px;
   cursor: pointer;
   transform: translateY(-50%);
-  // transition: 0.3s;
 
   &::before {
     position: absolute;
@@ -105,7 +102,6 @@
   transform: translateY(-50%) scale(0.8);
   right: 45px;
   height: 35px;
-  // transition: 0.3s;
 
   &:hover {
     > svg > path {
@@ -143,8 +139,6 @@
   width: 100%;
 }
 
-
-
 .modal {
   position: fixed;
   z-index: 99;
@@ -176,71 +170,70 @@
   }
 }
 
-.buttonsFilterContainer{
+.buttonsFilterContainer {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.typeContainer{
+.typeContainer {
   list-style: none;
   text-decoration: none;
   display: flex;
-  li{
-    color:$white;
-    &:hover{
+  li {
+    color: $white;
+    &:hover {
       cursor: pointer;
-      color: red
+      color: red;
     }
   }
 }
 
-.findButton{
-width: 100px;
-height: 50px;
+.findButton {
+  width: 100px;
+  height: 50px;
 }
 
-.titleSelect{
+.titleSelect {
   font-size: 16px;
   font-weight: 600;
   line-height: 24px;
 }
-.select{
+.select {
   width: 100%;
-    padding: 20px 18px;
-    background-color: $graphite;
+  padding: 20px 18px;
+  background-color: $graphite;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  outline: 0;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  color: $secondary;
+  margin-bottom: 24px;
+  &:hover,
+  &:focus {
+    border-color: $primary;
+    color: $white;
+  }
+  &:active {
     border: 2px solid transparent;
-    border-radius: 10px;
-    outline: 0;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 20px;
+  }
+  &::placeholder {
     color: $secondary;
-    margin-bottom: 24px;
-    &:hover,
-    &:focus {
-      border-color: $primary;
-      color: $white;
-    }
-    &:active {
-      border: 2px solid transparent;
-    }
-    &::placeholder {
-      color: $secondary;
-    }
   }
+}
 
-
-  .buttons{
-    width: 100%;
-    display: flex;
-    margin-top: 300px;
-    justify-content: space-between;
-    .searchBtn{
-      width: 250px;
-    }
-    .clearBtn{
-      width: 250px;
-    }
+.buttons {
+  width: 100%;
+  display: flex;
+  margin-top: 300px;
+  justify-content: space-between;
+  .searchBtn {
+    width: 250px;
   }
+  .clearBtn {
+    width: 250px;
+  }
+}

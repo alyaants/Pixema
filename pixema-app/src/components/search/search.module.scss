@@ -18,7 +18,6 @@
   width: 24px;
   cursor: pointer;
   transform: translateY(-50%);
-  // transition: 0.3s;
 
   &::before {
     position: absolute;
@@ -49,7 +48,6 @@
   transform: translateY(-50%) scale(0.8);
   right: 45px;
   height: 35px;
-  // transition: 0.3s;
 
   &:hover {
     > svg > path {
@@ -83,7 +81,6 @@
   }
 }
 
-
-.search{
+.search {
   width: 100%;
 }

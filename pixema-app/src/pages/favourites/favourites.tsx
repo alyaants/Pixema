@@ -12,7 +12,7 @@ const Favourites = () => {
     <div>
       {favouritesMovies.length ? (
         <div className={style.container}>
-          {<FilmList filmList={favouritesMovies}  isLoading={isListLoading} />}
+          {<FilmList filmList={favouritesMovies} isLoading={isListLoading} />}
         </div>
       ) : (
         <EmptyState

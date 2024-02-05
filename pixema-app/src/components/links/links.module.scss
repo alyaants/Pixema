@@ -1,7 +1,6 @@
 @import "../../styles/colors.scss";
 
 .wrap {
-  // height: 100vh;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -30,7 +29,6 @@
   &:hover svg path {
     fill: $primary;
   }
-  //   margin-bottom: 40px;
 
   .linkIcon {
     width: 25px;
@@ -67,7 +65,6 @@
   & svg path {
     fill: $primary;
   }
-  //   margin-bottom: 40px;
 
   .linkIcon {
     width: 25px;
@@ -90,8 +87,7 @@
   }
 }
 
-.footer{
-  // margin-top: 770px;
+.footer {
   position: absolute;
   bottom: 100px;
   left: 50px;

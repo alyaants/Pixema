@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import FilmList from "../../components/filmList/filmList";
 import { useDispatch, useSelector } from "react-redux";
 import { MovieSelectors, getAllMovies } from "../../redux/reducers/movieSlice";
 import Button, { ButtonTypes } from "../../components/button/button";
 import { LIMIT } from "../../utiles/constants";
 import styles from "./allMovies.module.scss";
-import Loader from "../../components/loader/loader";
 
 interface AllMoviesProps {
   isLoading?: boolean;
@@ -26,10 +25,7 @@ const AllMovies = (props: AllMoviesProps) => {
     setLimit((prevLimit) => prevLimit + LIMIT);
   };
 
-  let years = "2000-2004";
-  console.log(movieList);
-
-  return  (
+  return (
     <div>
       <FilmList filmList={movieList} isLoading={false} />
       <Button
@@ -39,7 +35,7 @@ const AllMovies = (props: AllMoviesProps) => {
         className={styles.btn}
       />
     </div>
-  ) 
+  );
 };
 
 export default AllMovies;

@@ -27,7 +27,7 @@ const SimilarMoviesSlider: React.FC<{ similarMovies: MovieCard[] }> = ({
   const currentMovies = similarMovies.slice(startIndex, endIndex);
   const isPrevDisabled = currentPage === 0;
   const isNextDisabled = currentPage === totalPages - 1;
-  
+
   return (
     <div className={styles.similarMoviesSlider}>
       <span>Recommendations</span>

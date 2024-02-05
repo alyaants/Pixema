@@ -1,8 +1,6 @@
 import styles from "./filmList.module.scss";
-import { MovieCard, MovieCardById, PostsList, SimilarMovies } from "../../../src/@types/index";
+import { MovieCard, MovieCardById } from "../../../src/@types/index";
 import FilmCard from "../filmCard/filmCard";
-import { useDispatch } from "react-redux";
-import Loader from "../loader/loader";
 
 interface FilmListProps {
   filmList: MovieCard[] | MovieCardById[] 

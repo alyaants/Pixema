@@ -3,40 +3,40 @@
 .containerSettings {
   width: 85%;
   .title {
-      margin-bottom: 16px;
+    margin-bottom: 16px;
   }
   .containerWrapper {
-      background-color: $dark;
-      border-radius: 20px;
-      padding: 24px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      .titleDark {
-          font-size: 16px;
-          font-weight: 700;
-          line-height: 24px;
-          color: $white;
-          margin-bottom: 4px;
-      }
-      .descr {
-          font-size: 16px;
-          font-weight: 500;
-          line-height: 24px;
-          color: $light;
-          margin-bottom: 4px;
-      }
+    background-color: $dark;
+    border-radius: 20px;
+    padding: 24px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .titleDark {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 24px;
+      color: $white;
+      margin-bottom: 4px;
+    }
+    .descr {
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 24px;
+      color: $light;
+      margin-bottom: 4px;
+    }
   }
 }
 
 .lightContainer {
   .containerWrapper {
-      background-color: $light;
-      .titleDark {
-          color: $dark;
-      }
-      .descr {
-          color: $secondary;
-      }
+    background-color: $light;
+    .titleDark {
+      color: $dark;
+    }
+    .descr {
+      color: $secondary;
+    }
   }
 }
